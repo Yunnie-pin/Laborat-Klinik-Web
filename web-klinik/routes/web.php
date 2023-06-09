@@ -47,3 +47,7 @@ Route::get('/dashboard', function () {
         ],
     );
 });
+
+Route::get('/cekking', function () {
+    return view('login');
+});
