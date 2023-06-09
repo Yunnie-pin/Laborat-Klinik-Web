@@ -55,27 +55,24 @@
                     <p class="text-center small">Di Web Klinik</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  @if(session()->has('loginError'))
+                  <div class="alert alert-danger">{{ session('loginError') }}</div>
+                  @endif
 
-
+                  <form class="row g-3 needs-validation" action="/login" method="POST">
+                    @csrf
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Email</label>
-                      <input type="text" name="email" class="form-control" id="yourEmail" required>
+                      <input type="text" name="email" class="form-control" id="email" required>
                       <div class="invalid-feedback">Tolong Masukkan Email!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <input type="password" name="password" class="form-control" id="password" required>
                       <div class="invalid-feedback">Tolong Masukkan Password!</div>
                     </div>
 
-                    <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Ingat Saya</label>
-                      </div>
-                    </div>
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>

@@ -18,7 +18,7 @@
 
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                 <li class="dropdown-header">
-                    <h6> {{$user['name']}} </h6>
+                    <h6> Hai ! {{auth()->user()->nama_lengkap}} </h6>
                     <span> {{$user['roles']}} </span>
                 </li>
                 <li>
@@ -34,10 +34,13 @@
                     <hr class="dropdown-divider">
                 </li>
                 <li>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
-                        <i class="bi bi-box-arrow-right"></i>
-                        <span>Sign Out</span>
-                    </a>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button  class="dropdown-item d-flex align-items-center" type="submit">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Log Out</span>
+                        </button>
+                    </form>
                 </li>
 
             </ul><!-- End Profile Dropdown Items -->
