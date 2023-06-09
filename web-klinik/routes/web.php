@@ -22,5 +22,9 @@ Route::get('/login', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard',[
+        "name" => "Windah Basudara",
+        "email" => "Windahbasudara@gmail.com",
+        "roles" => "Super Admin"
+    ]);
 });

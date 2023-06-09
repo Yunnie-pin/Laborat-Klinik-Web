@@ -54,8 +54,8 @@
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>Elham Dwi Santoso</h6>
-                        <span>Admintrasi</span>
+                        <h6><?= $name;?></h6>
+                        <span><?= $roles;?></span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
