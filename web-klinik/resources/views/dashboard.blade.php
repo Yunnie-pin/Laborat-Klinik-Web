@@ -33,7 +33,7 @@
                                                 <i class="bi bi-person"></i>
                                             </div>
                                             <div class="ps-3">
-                                                <h6 class="text">{{ $pasien }}</h6>
+                                                <h6 class="text">{{ $info['pasien'] }}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@
                                                 <i class="bi bi-person"></i>
                                             </div>
                                             <div class="ps-3">
-                                                <h6>{{ $pemeriksaanHarian }}</h6>
+                                                <h6>{{ $info['pemeriksaan']['harian'] }}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +73,7 @@
                                                 <i class="bi bi-person"></i>
                                             </div>
                                             <div class="ps-3">
-                                                <h6> {{ $pemeriksaanBulanan }}</h6>
+                                                <h6> {{ $info['pemeriksaan']['bulanan'] }}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                                 <i class="bi bi-person"></i>
                                             </div>
                                             <div class="ps-3">
-                                                <h6> {{ $pemeriksaanTahunan }}</h6>
+                                                <h6> {{ $info['pemeriksaan']['tahunan'] }}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@
                                                 <i class="bi bi-person"></i>
                                             </div>
                                             <div class="ps-3">
-                                                <h6>{{ $administrasi }}</h6>
+                                                <h6>{{ $info['roles']['administrasi'] }}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@
                                                 <i class="bi bi-person"></i>
                                             </div>
                                             <div class="ps-3">
-                                                <h6>{{ $poli }}</h6>
+                                                <h6>{{ $info['roles']['poli'] }}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -153,7 +153,7 @@
                                                 <i class="bi bi-person"></i>
                                             </div>
                                             <div class="ps-3">
-                                                <h6> {{ $laborat }}</h6>
+                                                <h6> {{ $info['roles']['laborat'] }}</h6>
                                             </div>
                                         </div>
                                     </div>

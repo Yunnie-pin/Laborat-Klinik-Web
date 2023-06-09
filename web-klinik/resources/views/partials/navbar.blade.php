@@ -7,8 +7,8 @@
         <i class="bi bi-list toggle-sidebar-btn text-light"></i>
     </div><!-- End Logo -->
 
-    <nav class="header-nav ms-auto">
-        <ul class="d-flex align-items-center">
+    <nav class="header-nav ms-auto ">
+        <ul class="d-flex align-items-center px-5">
             <li class="nav-item dropdown pe-3"></li>
 
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
