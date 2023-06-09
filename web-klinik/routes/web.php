@@ -22,9 +22,23 @@ Route::get('/login', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard',[
-        "name" => "Windah Basudara",
-        "email" => "Windahbasudara@gmail.com",
-        "roles" => "Super Admin"
+    return view('dashboard',
+    [
+        "routes" => "dashboard",
+        "user" => [
+            "name" => "Windah Basudara",
+            "email" => "Windahbasudara@gmail.com",
+            "roles" => "Super Admin"
+        ],
+
+    ],
+    [
+        "pasien" => 72,
+        "pemeriksaanHarian" => 8,
+        "pemeriksaanBulanan" => 120,
+        "pemeriksaanTahunan" => 200,
+        "administrasi" => 3,
+        "poli" => 6,
+        "laborat" => 10,
     ]);
 });
