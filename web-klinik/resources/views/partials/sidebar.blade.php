@@ -10,6 +10,12 @@
         <hr>
         <li class="nav-heading">Administrasi Pages</li>
         <li class="nav-item">
+            <a class="nav-link " href="riwayat-pemeriksaan">
+                <i class="bi bi-grid"></i>
+                <span>Riwayat Pemeriksaan</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
             <a class="nav-link " href="#">
                 <i class="bi bi-grid"></i>
                 <span>Data Pasien</span>
@@ -19,12 +25,6 @@
             <a class="nav-link " href="#">
                 <i class="bi bi-grid"></i>
                 <span>Registrasi Pasien</span>
-            </a>
-        </li><!-- End Dashboard Nav -->
-        <li class="nav-item">
-            <a class="nav-link " href="#">
-                <i class="bi bi-grid"></i>
-                <span>Riwayat Pemeriksaan</span>
             </a>
         </li><!-- End Dashboard Nav -->
     </ul>

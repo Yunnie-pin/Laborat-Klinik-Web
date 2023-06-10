@@ -31,6 +31,10 @@
     <!-- Template Main CSS File -->
     <link href="css/style.css" rel="stylesheet">
 
+
+    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.css" rel="stylesheet" />
+
+
     <!-- =======================================================
 
     <!-- ======= Header ======= -->
@@ -38,7 +42,7 @@
     <!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
-   @include('partials.sidebar')
+    @include('partials.sidebar')
     <!-- End Sidebar-->
 
     <main id="main" class="main">
@@ -59,9 +63,15 @@
     <script src="vendor/simple-datatables/simple-datatables.js"></script>
     <script src="vendor/tinymce/tinymce.min.js"></script>
     <script src="vendor/php-email-form/validate.js"></script>
-
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.js"></script>
     <!-- Template Main JS File -->
     <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
 
     </body>
 

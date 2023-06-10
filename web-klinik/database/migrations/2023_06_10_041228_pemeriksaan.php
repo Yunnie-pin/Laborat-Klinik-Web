@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('pasien_id')
                 ->constrained('pasiens');
             $table->foreignId('status_id')
-                ->constrained('status');
+                ->constrained('statuses');
             $table->timestamps();
         });
     }
