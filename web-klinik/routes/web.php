@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -25,32 +26,7 @@ Route::post('/login', [LoginController::class,'authenticate']);
 Route::post('/logout', [LogoutController::class,'logout']);
 
 
-Route::get('/dashboard', function () {
-    return view(
-        'dashboard',
-        [
-            "routes" => "dashboard",
-            "user" => [
-                "name" => "Windah Basudara",
-                "email" => "Windahbasudara@gmail.com",
-                "roles" => "Super Admin"
-            ],
-            "info" => [
-                "pasien" => 72,
-                "pemeriksaan" => [
-                    "harian" => 8,
-                    "bulanan" => 120,
-                    "tahunan" => 200,
-                ],
-                "roles" => [
-                    "administrasi" => 3,
-                    "poli" => 6,
-                    "laborat" => 10,
-                ]
-            ],
-        ],
-    );
-});
+Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
 
 Route::get('/cekking', function () {
     return view('login');
