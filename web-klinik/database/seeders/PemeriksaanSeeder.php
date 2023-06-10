@@ -16,7 +16,7 @@ class PemeriksaanSeeder extends Seeder
     {
         //
 
-        $date = Carbon::createFromFormat('Y-m-d H:i:s', '2022-10-18 00:00:00');
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', '2023-6-10 00:00:00');
         $this->command->info("Seeding Pemeriksaan");
         $this->command->getOutput()->progressStart(20);
         for ($i = 0; $i < 20; $i++) {
