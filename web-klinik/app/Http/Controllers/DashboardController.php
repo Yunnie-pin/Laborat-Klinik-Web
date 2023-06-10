@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Roles;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Pasien;
 
 class DashboardController extends Controller
 {
@@ -19,7 +20,7 @@ class DashboardController extends Controller
             [
                 "routes" => "dashboard",
                 "info" => [
-                    "pasien" => 72,
+                    "pasien" => Pasien::all()->count(),
                     "pemeriksaan" => [
                         "harian" => 8,
                         "bulanan" => 123,
