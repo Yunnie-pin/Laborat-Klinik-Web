@@ -18,7 +18,7 @@ class BidangPemeriksaanSeeder extends Seeder
         ];
         foreach ($data as $data) {
             DB::table('bidang_pemeriksaans')->insert([
-                'bidang' => $data,
+                'name' => $data,
             ]);
         }
     }
