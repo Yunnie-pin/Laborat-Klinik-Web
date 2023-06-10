@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Roles;
+use App\Models\Pasien;
+use App\Models\Pemeriksaan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,26 +16,41 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $periksa = Pemeriksaan::all();
+        $harian = 0;
+        $bulanan = 0;
+        $tahunan = 0;
+        foreach ($periksa as $d) {
+            if (($d->created_at)->isToday()) {
+                $harian++;
+            }
+            if (($d->created_at)->isCurrentMonth()) {
+                $bulanan++;
+            }
+            if (($d->created_at)->isCurrentYear()) {
+                $tahunan++;
+            }
+        }
+
+        $data = [
+            "routes" => "dashboard",
+            "info" => [
+                "pasien" => Pasien::all()->count(),
+                "pemeriksaan" => [
+                    "harian" => $harian,
+                    "bulanan" => $bulanan,
+                    "tahunan" => $tahunan,
+                ],
+                "roles" => [
+                    "administrasi" => Roles::where('id','2')->count(),
+                    "poli" => Roles::where('id','3')->count(),
+                    "laborat" => Roles::where('id','4')->count(),
+                ]
+            ],
+        ];
         //
         return view(
-            'dashboard',
-            [
-                "routes" => "dashboard",
-                "info" => [
-                    "pasien" => 72,
-                    "pemeriksaan" => [
-                        "harian" => 8,
-                        "bulanan" => 123,
-                        "tahunan" => 200,
-                    ],
-                    "roles" => [
-                        "administrasi" => Roles::where('id','2')->count(),
-                        "poli" => Roles::where('id','3')->count(),
-                        "laborat" => Roles::where('id','4')->count(),
-                    ]
-                ],
-            ],
-            
+            'dashboard', $data
         );
     }
 
