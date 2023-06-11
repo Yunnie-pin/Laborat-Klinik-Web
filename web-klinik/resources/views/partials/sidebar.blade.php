@@ -30,6 +30,19 @@
                 <span>Data Bidang Pemeriksaan</span>
             </a>
         </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link " href="list-metode">
+                <i class="bi bi-grid"></i>
+                <span>Data Metode Pemeriksaan</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link " href="list-parameter">
+                <i class="bi bi-grid"></i>
+                <span>Data Parameter </span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+        
 
 
         <li class="nav-heading">Administrasi Pages</li>
