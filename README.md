@@ -1,7 +1,5 @@
 
-# Nama Project
-
-"Web Klinik"
+# Web Klinik
 Project untuk memenuhi nilai tugas mata kuliah proyek pemrograman
 
 # Deskripsi Project
