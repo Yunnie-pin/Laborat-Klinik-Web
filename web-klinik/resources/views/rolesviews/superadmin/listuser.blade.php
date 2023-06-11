@@ -4,7 +4,7 @@
         <h1>Data Petugas / User</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">super</a></li>
+                <li class="breadcrumb-item"><a href="index.html">Super Admin</a></li>
                 <li class="breadcrumb-item active">Data Petugas</li>
             </ol>
         </nav>

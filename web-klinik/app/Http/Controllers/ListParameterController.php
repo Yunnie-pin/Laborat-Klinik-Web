@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MetodePemeriksaan;
+use App\Models\ParameterPemeriksaan;
 use Illuminate\Http\Request;
 
-class ListMetodeController extends Controller
+class ListParameterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +13,9 @@ class ListMetodeController extends Controller
     public function index()
     {
         //
+        $dataParameter = ParameterPemeriksaan::all();
 
-        $dataMetode = MetodePemeriksaan::all();
-
-        return view('rolesviews.superadmin.listmetode', ['dataMetode' => $dataMetode]);
+        return view('rolesviews.superadmin.listparameter', ['dataParameter' => $dataParameter]);
 
     }
 
@@ -39,7 +38,7 @@ class ListMetodeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(MetodePemeriksaan $metodePemeriksaan)
+    public function show(ParameterPemeriksaan $parameterPemeriksaan)
     {
         //
     }
@@ -47,7 +46,7 @@ class ListMetodeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MetodePemeriksaan $metodePemeriksaan)
+    public function edit(ParameterPemeriksaan $parameterPemeriksaan)
     {
         //
     }
@@ -55,7 +54,7 @@ class ListMetodeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MetodePemeriksaan $metodePemeriksaan)
+    public function update(Request $request, ParameterPemeriksaan $parameterPemeriksaan)
     {
         //
     }
@@ -63,7 +62,7 @@ class ListMetodeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(MetodePemeriksaan $metodePemeriksaan)
+    public function destroy(ParameterPemeriksaan $parameterPemeriksaan)
     {
         //
     }

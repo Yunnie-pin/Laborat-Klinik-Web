@@ -1,11 +1,11 @@
 @extends('layouts.main')
 @section('container')
     <div class="pagetitle">
-        <h1>Data Bidang Pemeriksaan</h1>
+        <h1>Data Parameter Pemeriksaan</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Super Admin</a></li>
-                <li class="breadcrumb-item active">Data Bidang Pemeriksaan</li>
+                <li class="breadcrumb-item active">Data Parameter Pemeriksaan</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -27,14 +27,24 @@
                                         <tr>
                                             <th>id</th>
                                             <th>Bidang</th>
+                                            <th>Metode</th>
+                                            <th>Parameter</th>
+                                            <th>Nilai Rujukan</th>
+                                            <th>Satuan</th>
+                                            <th>Harga</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($dataBidang as $bidang)
+                                        @foreach ($dataParameter as $data)
                                             <tr>
-                                                <td>{{ $bidang->id }}</td>
-                                                <td>{{ $bidang->name }}</td>
+                                                <td>{{ $data->id }}</td>
+                                                <td>{{ $data->bidang->name }}</td>
+                                                <td>{{ $data->metode->name }}</td>
+                                                <td>{{ $data->parameter }}</td>
+                                                <td>{{ $data->nilai_rujukan }}</td>
+                                                <td>{{ $data->satuan }}</td>
+                                                <td>{{ $data->harga }}</td>
 
                                                 <td>
                                                    <div class="row">

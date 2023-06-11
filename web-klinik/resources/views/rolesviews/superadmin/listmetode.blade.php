@@ -1,11 +1,11 @@
 @extends('layouts.main')
 @section('container')
     <div class="pagetitle">
-        <h1>Data Pasien</h1>
+        <h1>Data Metode Pemeriksaan</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Administrasi</a></li>
-                <li class="breadcrumb-item active">Data Pasien</li>
+                <li class="breadcrumb-item"><a href="index.html">Super Admin</a></li>
+                <li class="breadcrumb-item active">Data Bidang Pemeriksaan</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->

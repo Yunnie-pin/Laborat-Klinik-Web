@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ListBidangController;
 use App\Http\Controllers\ListMetodeController;
+use App\Http\Controllers\ListParameterController;
 use App\Http\Controllers\ListPasienController;
 use App\Http\Controllers\ListUserController;
 use Illuminate\Support\Facades\Route;
@@ -39,7 +40,7 @@ Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index'
 Route::get('/list-user', [ListUserController::class, 'index']);
 Route::get('/list-bidang', [ListBidangController::class, 'index']);
 Route::get('/list-metode', [ListMetodeController::class, 'index']);
-
+Route::get('/list-parameter', [ListParameterController::class, 'index']);
 
 //Administrasi
 Route::get('/list-pasien', [ListPasienController::class, 'index']);
