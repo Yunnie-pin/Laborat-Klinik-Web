@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ListPasienController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -30,6 +31,10 @@ Route::post('/logout', [LogoutController::class,'logout']);
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
 
 Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index']);
+
+//Administrasi
+Route::get('/list-pasien', [ListPasienController::class, 'index']);
+
 
 Route::get('/cekking', function () {
     return view('login');

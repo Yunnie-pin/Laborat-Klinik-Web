@@ -23,7 +23,7 @@
                                 <table id="myTable" class="table table-striped border-primary table-hover table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>id</th>
+                                            <th>id pemeriksaan</th>
                                             <th>Nama Pasien</th>
                                             <th>Dokter</th>
                                             <th>Waktu</th>
