@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pemeriksaan;
+use App\Models\ParameterPemeriksaan;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class RiwayatPemeriksaanController extends Controller
+class ListParameterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,10 @@ class RiwayatPemeriksaanController extends Controller
     public function index()
     {
         //
-        $dataPemeriksaan = Pemeriksaan::all();
+        $dataParameter = ParameterPemeriksaan::all();
 
-        return view('riwayatPemeriksaan', ['dataPemeriksaan' => $dataPemeriksaan]);
+        return view('rolesviews.superadmin.listparameter', ['dataParameter' => $dataParameter]);
+
     }
 
     /**
@@ -27,7 +27,6 @@ class RiwayatPemeriksaanController extends Controller
         //
     }
 
-    
     /**
      * Store a newly created resource in storage.
      */
@@ -39,7 +38,7 @@ class RiwayatPemeriksaanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(pemeriksaan $pemeriksaan)
+    public function show(ParameterPemeriksaan $parameterPemeriksaan)
     {
         //
     }
@@ -47,7 +46,7 @@ class RiwayatPemeriksaanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(pemeriksaan $pemeriksaan)
+    public function edit(ParameterPemeriksaan $parameterPemeriksaan)
     {
         //
     }
@@ -55,7 +54,7 @@ class RiwayatPemeriksaanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, pemeriksaan $pemeriksaan)
+    public function update(Request $request, ParameterPemeriksaan $parameterPemeriksaan)
     {
         //
     }
@@ -63,7 +62,7 @@ class RiwayatPemeriksaanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(pemeriksaan $pemeriksaan)
+    public function destroy(ParameterPemeriksaan $parameterPemeriksaan)
     {
         //
     }

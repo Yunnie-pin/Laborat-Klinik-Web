@@ -22,7 +22,7 @@ class PasienFactory extends Factory
             'jenis_identitas' => fake()->randomElement(['KTP', 'SIM', 'PASSPORT']),
             'jenis_kelamin' =>fake()->randomElement(['L','P']),
             'no_identitas'=>fake()->numerify('#############'),
-            'no_telp'=>fake()-> numerify('############'),
+            'no_telp'=>'08123xxxxxx',
             'bpjs'=>fake()->numerify('############'),
             'alamat' => fake()->address()
         ];

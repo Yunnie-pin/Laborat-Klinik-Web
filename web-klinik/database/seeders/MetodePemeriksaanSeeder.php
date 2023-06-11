@@ -14,7 +14,7 @@ class MetodePemeriksaanSeeder extends Seeder
     public function run(): void
     {
         //
- $data = [
+        $data = [
             "-",
             "hematologi analyzer",
             "westergren",

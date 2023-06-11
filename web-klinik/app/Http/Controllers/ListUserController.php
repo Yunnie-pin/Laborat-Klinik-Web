@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pemeriksaan;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class RiwayatPemeriksaanController extends Controller
+class ListUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,9 @@ class RiwayatPemeriksaanController extends Controller
     public function index()
     {
         //
-        $dataPemeriksaan = Pemeriksaan::all();
+        $dataUser = User::all();
 
-        return view('riwayatPemeriksaan', ['dataPemeriksaan' => $dataPemeriksaan]);
+        return view('rolesviews.superadmin.listuser', ['dataUser' => $dataUser]);
     }
 
     /**
@@ -27,7 +26,6 @@ class RiwayatPemeriksaanController extends Controller
         //
     }
 
-    
     /**
      * Store a newly created resource in storage.
      */
@@ -39,7 +37,7 @@ class RiwayatPemeriksaanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(pemeriksaan $pemeriksaan)
+    public function show(User $user)
     {
         //
     }
@@ -47,7 +45,7 @@ class RiwayatPemeriksaanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(pemeriksaan $pemeriksaan)
+    public function edit(User $user)
     {
         //
     }
@@ -55,7 +53,7 @@ class RiwayatPemeriksaanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, pemeriksaan $pemeriksaan)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -63,7 +61,7 @@ class RiwayatPemeriksaanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(pemeriksaan $pemeriksaan)
+    public function destroy(User $user)
     {
         //
     }

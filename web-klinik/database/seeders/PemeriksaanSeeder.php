@@ -21,9 +21,9 @@ class PemeriksaanSeeder extends Seeder
         $this->command->getOutput()->progressStart(20);
         for ($i = 0; $i < 20; $i++) {
             DB::table('pemeriksaans')->insert([
-                'user_id' => 1,
+                'user_id' => 4,
                 'pasien_id' => rand(1, 10),
-                'status_id' => rand(1, 4),
+                'status_id' => rand(3, 4),
                 'created_at' => $date->format('Y-m-d H:i:s'),
                 'updated_at' => $date->format('Y-m-d H:i:s'),
             ]);
