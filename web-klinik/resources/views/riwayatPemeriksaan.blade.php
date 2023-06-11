@@ -18,8 +18,17 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-body p-3">
+                            
                             <!-- card -->
                             <div class="row p-3 border border-primary ">
+
+                                <div class="p-3">
+                                    <button type="button" class="btn btn-outline-primary">Belum Diproses</button>
+                                    <button type="button" class="btn btn-outline-warning">Menunggu Direview</button>
+                                    <button type="button" class="btn btn-outline-success">Selesai</button>
+                                    <button type="button" class="btn btn-outline-danger">Dibatalkan</button>
+                                </div>
+
                                 <table id="myTable" class="table table-striped border-primary table-hover table-bordered">
                                     <thead>
                                         <tr>
@@ -39,16 +48,21 @@
                                             <td>{{ $pemeriksaan->user->nama_lengkap }}</td>
                                             <td>{{ $pemeriksaan->created_at }}</td>
                                             @if (($pemeriksaan->status->id)==1)
-                                            <td><button type="button" class="btn btn-outline-primary">{{ $pemeriksaan->status->name }}</button>
+                                            <td class="bg-primary text-white">
+                                                {{ $pemeriksaan->status->name }}
                                             </td>
                                             @elseif (($pemeriksaan->status->id)==2)
-                                            <td><button type="button" class="btn btn-outline-warning">{{ $pemeriksaan->status->name }}</button>
+                                            <td class="bg-warning text-white">
+                                                {{ $pemeriksaan->status->name }}
                                             </td>
                                             @elseif (($pemeriksaan->status->id)==3)
-                                            <td><button type="button" class="btn btn-outline-success">{{ $pemeriksaan->status->name }}</button>
+                                            <td class="bg-success text-white">
+                                                {{ $pemeriksaan->status->name }}
                                             </td>
                                             @else
-                                            <td><button type="button" class="btn btn-outline-danger">{{ $pemeriksaan->status->name }}</button>
+                                            <td class="bg-danger text-white">
+                                                {{ $pemeriksaan->status->name }}
+                                            </td>
                                             @endif
                                             <td><div class="dropdown">
                                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

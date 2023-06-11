@@ -14,6 +14,18 @@
             </a>
         </li><!-- End Dashboard Nav -->
         <hr>
+
+
+        <li class="nav-heading">Super Admin Pages</li>
+
+        <li class="nav-item">
+            <a class="nav-link " href="list-user">
+                <i class="bi bi-grid"></i>
+                <span>Data Petugas/User</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+
         <li class="nav-heading">Administrasi Pages</li>
 
         <li class="nav-item">

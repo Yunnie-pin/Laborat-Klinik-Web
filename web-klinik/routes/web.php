@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ListPasienController;
+use App\Http\Controllers\ListUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -31,6 +32,9 @@ Route::post('/logout', [LogoutController::class,'logout']);
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
 
 Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index']);
+
+//Super Admin
+Route::get('/list-user', [ListUserController::class, 'index']);
 
 //Administrasi
 Route::get('/list-pasien', [ListPasienController::class, 'index']);
