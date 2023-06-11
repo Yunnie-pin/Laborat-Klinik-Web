@@ -15,7 +15,7 @@ class StatusSeeder extends Seeder
     {
         $status = ['Belum diproses', 'Menunggu direview', 'Selesai', 'Dibatalkan'];
         foreach ($status as $d) {
-            DB::table('status')->insert([
+            DB::table('statuses')->insert([
                 'name' => $d,
             ]);
         }
