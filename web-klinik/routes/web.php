@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ListBidangController;
 use App\Http\Controllers\ListPasienController;
 use App\Http\Controllers\ListUserController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index'
 
 //Super Admin
 Route::get('/list-user', [ListUserController::class, 'index']);
+Route::get('/list-bidang', [ListBidangController::class, 'index']);
 
 //Administrasi
 Route::get('/list-pasien', [ListPasienController::class, 'index']);

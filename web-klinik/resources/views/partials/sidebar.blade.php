@@ -24,6 +24,12 @@
                 <span>Data Petugas/User</span>
             </a>
         </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link " href="list-bidang">
+                <i class="bi bi-grid"></i>
+                <span>Data Bidang Pemeriksaan</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
 
 
         <li class="nav-heading">Administrasi Pages</li>
