@@ -38,7 +38,7 @@ Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index'
 
 //Super Admin
 Route::get('/list-user', [ListUserController::class, 'index']);
-Route::get('/list-bidang', [ListBidangController::class, 'index']);
+Route::resource('/list-bidang', ListBidangController::class);
 Route::get('/list-metode', [ListMetodeController::class, 'index']);
 Route::get('/list-parameter', [ListParameterController::class, 'index']);
 

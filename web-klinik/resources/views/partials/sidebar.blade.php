@@ -21,7 +21,7 @@
         <li class="nav-item">
             <a class="nav-link " href="list-user">
                 <i class="bi bi-grid"></i>
-                <span>Data Petugas/User</span>
+                <span>Data Petugas / User</span>
             </a>
         </li><!-- End Dashboard Nav -->
         <li class="nav-item">

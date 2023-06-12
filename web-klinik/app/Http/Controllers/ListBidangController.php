@@ -24,6 +24,7 @@ class ListBidangController extends Controller
     public function create()
     {
         //
+        return view('rolesviews.superadmin.create.createbidang');
     }
 
     /**
