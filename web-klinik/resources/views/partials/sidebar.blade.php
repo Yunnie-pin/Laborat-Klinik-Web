@@ -2,13 +2,13 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-            <a class="nav-link " href="dashboard">
+            <a class="nav-link " href="{{ route('dashboard') }}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
         <li class="nav-item">
-            <a class="nav-link " href="riwayat-pemeriksaan">
+            <a class="nav-link " href="{{ route('riwayat-pemeriksaan') }}">
                 <i class="bi bi-grid"></i>
                 <span>Riwayat Pemeriksaan</span>
             </a>
@@ -19,25 +19,25 @@
         <li class="nav-heading">Super Admin Pages</li>
 
         <li class="nav-item">
-            <a class="nav-link " href="list-user">
+            <a class="nav-link " href="{{ route('list-user') }}">
                 <i class="bi bi-grid"></i>
                 <span>Data Petugas / User</span>
             </a>
         </li><!-- End Dashboard Nav -->
         <li class="nav-item">
-            <a class="nav-link " href="list-bidang">
+            <a class="nav-link " href="{{ route('list-bidang') }}">
                 <i class="bi bi-grid"></i>
                 <span>Data Bidang Pemeriksaan</span>
             </a>
         </li><!-- End Dashboard Nav -->
         <li class="nav-item">
-            <a class="nav-link " href="list-metode">
+            <a class="nav-link " href="{{ route('list-metode') }}">
                 <i class="bi bi-grid"></i>
                 <span>Data Metode Pemeriksaan</span>
             </a>
         </li><!-- End Dashboard Nav -->
         <li class="nav-item">
-            <a class="nav-link " href="list-parameter">
+            <a class="nav-link " href="{{ route('list-parameter') }}">
                 <i class="bi bi-grid"></i>
                 <span>Data Parameter </span>
             </a>
@@ -48,7 +48,7 @@
         <li class="nav-heading">Administrasi Pages</li>
 
         <li class="nav-item">
-            <a class="nav-link " href="list-pasien">
+            <a class="nav-link " href="{{ route('list-pasien') }}">
                 <i class="bi bi-grid"></i>
                 <span>Data Pasien</span>
             </a>
