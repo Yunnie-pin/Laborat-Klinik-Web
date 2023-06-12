@@ -43,7 +43,8 @@ Route::resource('/list-user', ListUserController::class)->names([
 
 Route::resource('/list-bidang', ListBidangController::class)->names([
     'index' => 'list-bidang',
-    'create' => 'create-bidang'
+    'create' => 'create-bidang',
+    'store' => 'store-bidang'
 ]);
 
 Route::resource('/list-metode', ListMetodeController::class)->names([

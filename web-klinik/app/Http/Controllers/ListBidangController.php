@@ -33,6 +33,13 @@ class ListBidangController extends Controller
     public function store(Request $request)
     {
         //
+        $validateData = $request->validate([
+            'name' => 'required|max:30'
+        ]);
+
+        BidangPemeriksaan::create($validateData);
+
+        return redirect('/list-bidang')->with('success','Bidang telah berhasil ditambahkan');
     }
 
     /**

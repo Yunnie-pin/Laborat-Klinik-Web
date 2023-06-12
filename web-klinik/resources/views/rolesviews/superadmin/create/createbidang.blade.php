@@ -19,11 +19,31 @@
                     <div class="card">
                         <div class="card-body p-3">
                             <!-- card -->
-                            <div class="py-3">
-                                <a class="btn btn-success" href="#" role="button">
-                                    <i class="bi bi-plus">Tambah Bidang</i>
-                                </a>
-                            </div>
+                            
+
+                            <form class="row g-3" method="post" action="{{ route('store-bidang') }}">
+                                @csrf
+                                <div class="col-md-3">
+                                  <label for="Name" class="form-label">Nama Bidang</label>
+                                  <input type="text" class="form-control 
+                                  @error('name') 
+                                    is-invalid
+                                  @enderror
+                                  " id="name" name="name">
+                                </div>
+                            
+                                @error('name')
+                                <div class="col-12">
+                                    <label class="form-check-label invalid-feedback">
+                                      {{ $message }}
+                                    </label>
+                                </div>
+                                @enderror
+
+                                <div class="col-12">
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                              </form>
 
                             <!-- end card -->
                         </div>

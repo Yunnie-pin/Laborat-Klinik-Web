@@ -20,6 +20,13 @@
                     <div class="card">
                         <div class="card-body p-3">
                             <!-- card -->
+
+                            @if(session()->has('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                              </div>
+                            @endif
+
                             <div class="py-3">
                                 <a class="btn btn-success" href="list-bidang/create" role="button">
                                     <i class="bi bi-plus">Tambah Bidang</i>
