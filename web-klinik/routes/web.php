@@ -26,26 +26,40 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', [LoginController::class,'index'])->middleware('guest');
-Route::post('/login', [LoginController::class,'authenticate']);
+Route::get('/login', [LoginController::class,'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class,'authenticate'])->name('login');
 
-Route::post('/logout', [LogoutController::class,'logout']);
+Route::post('/logout', [LogoutController::class,'logout'])->name('logout');
 
 
-Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
+Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard')->middleware('auth');
 
-Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index']);
+Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index'])->name('riwayat-pemeriksaan');
 
 //Super Admin
-Route::get('/list-user', [ListUserController::class, 'index']);
-Route::get('/list-bidang', [ListBidangController::class, 'index']);
-Route::get('/list-metode', [ListMetodeController::class, 'index']);
-Route::get('/list-parameter', [ListParameterController::class, 'index']);
+Route::resource('/list-user', ListUserController::class)->names([
+    'index' => 'list-user'
+]);;
+
+Route::resource('/list-bidang', ListBidangController::class)->names([
+    'index' => 'list-bidang',
+    'create' => 'create-bidang',
+    'store' => 'store-bidang',
+]);
+
+Route::resource('/list-metode', ListMetodeController::class)->names([
+    'index' => 'list-metode'
+]);
+
+Route::resource('/list-parameter', ListParameterController::class)->names([
+    'index' => 'list-parameter'
+]);
+
 
 //Administrasi
-Route::get('/list-pasien', [ListPasienController::class, 'index']);
+Route::get('/list-pasien', [ListPasienController::class, 'index'])->name('list-pasien');
 
 
-Route::get('/cekking', function () {
-    return view('login');
-});
+// Route::get('/cekking', function () {
+//     return view('login');
+// });

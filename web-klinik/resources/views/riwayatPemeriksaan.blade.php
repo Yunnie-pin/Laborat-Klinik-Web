@@ -46,7 +46,7 @@
                                             <td>{{ $pemeriksaan->id }}</td>
                                             <td>{{ $pemeriksaan->pasiens->nama }}</td>
                                             <td>{{ $pemeriksaan->user->nama_lengkap }}</td>
-                                            <td>{{ $pemeriksaan->created_at }}</td>
+                                            <td>{{ $pemeriksaan->created_at }}</t   d>
                                             @if (($pemeriksaan->status->id)==1)
                                             <td class="bg-primary text-white">
                                                 {{ $pemeriksaan->status->name }}

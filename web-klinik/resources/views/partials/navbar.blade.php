@@ -12,7 +12,7 @@
             <li class="nav-item dropdown pe-3"></li>
 
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                <img src="img/profile-img.jpg" alt="Profile" class="rounded-circle border border-4">
+                <img src="{{ asset('img/profile-img.jpg') }}" alt="Profile" class="rounded-circle border border-4">
                 <span class="d-none d-md-block dropdown-toggle ps-2 text-light"></span>
             </a><!-- End Profile Iamge Icon -->
 
@@ -34,7 +34,7 @@
                     <hr class="dropdown-divider">
                 </li>
                 <li>
-                    <form action="/logout" method="POST">
+                    <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button  class="dropdown-item d-flex align-items-center" type="submit">
                             <i class="bi bi-box-arrow-right"></i>
