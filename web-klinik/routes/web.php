@@ -48,7 +48,8 @@ Route::resource('/list-bidang', ListBidangController::class)->names([
 ]);
 
 Route::resource('/list-metode', ListMetodeController::class)->names([
-    'index' => 'list-metode'
+    'index' => 'list-metode',
+    'create' => 'create-metode'
 ]);
 
 Route::resource('/list-parameter', ListParameterController::class)->names([

@@ -26,6 +26,7 @@ class ListMetodeController extends Controller
     public function create()
     {
         //
+        return view('rolesviews.superadmin.create.createmetode');
     }
 
     /**
@@ -34,6 +35,13 @@ class ListMetodeController extends Controller
     public function store(Request $request)
     {
         //
+        $validateData = $request->validate([
+            'name' => 'required|max:30'
+        ]);
+
+        MetodePemeriksaan::create($validateData);
+
+        return redirect('/list-metode')->with('success','Metode telah berhasil ditambahkan');
     }
 
     /**
