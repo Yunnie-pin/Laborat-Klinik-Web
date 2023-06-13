@@ -61,14 +61,23 @@ class ListParameterController extends Controller
     public function show(ParameterPemeriksaan $parameterPemeriksaan)
     {
         //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ParameterPemeriksaan $parameterPemeriksaan)
+    public function edit($parameterPemeriksaan)
     {
         //
+        $dataBidang = BidangPemeriksaan::all();
+        $dataMetode = MetodePemeriksaan::all();
+        $data = ParameterPemeriksaan::find($parameterPemeriksaan);
+        return view('rolesviews.superadmin.edit.editparameter',[
+            'data' => $data,
+            'dataBidang' => $dataBidang,
+            'dataMetode' => $dataMetode
+        ],);
     }
 
     /**

@@ -65,10 +65,17 @@
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-auto mr-auto px-4 py-2">
-                                                            <button type="button" class="btn btn-warning">
-                                                                <i class="bi bi-pencil "></i>
-                                                            </button>
+                                                            
+                                                            <a href="{{ route('list-parameter.edit', ['list_parameter' => $data->id]) }}"
+                                                                class="btn btn-warning">
+                                                                <i class="bi bi-pencil text-white"></i>
+                                                            </a>
+
+
                                                         </div>
+
+
+
                                                         <div class="col px-4 py-2">
 
                                                             <form
