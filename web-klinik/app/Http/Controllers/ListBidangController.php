@@ -53,17 +53,30 @@ class ListBidangController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(BidangPemeriksaan $bidangPemeriksaan)
+    public function edit($bidangPemeriksaan)
     {
         //
+
+        $data = BidangPemeriksaan::find($bidangPemeriksaan);
+        return view('rolesviews.superadmin.edit.editbidang',[
+            'data' => $data,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, BidangPemeriksaan $bidangPemeriksaan)
+    public function update(Request $request, $bidangPemeriksaan)
     {
         //
+        //
+        $validateData = $request->validate([
+            'name' => 'required|max:30'
+        ]);
+
+        BidangPemeriksaan::where('id', $bidangPemeriksaan )->update($validateData);
+
+        return redirect('/list-bidang')->with('success','Bidang telah berhasil diperbaharui');
     }
 
     /**
