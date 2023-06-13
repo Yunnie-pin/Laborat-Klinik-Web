@@ -28,24 +28,20 @@
                             'harga' => '10000', --}}
 
 
-                            <form class="row g-3" method="post" action="{{ route('store-metode') }}">
+                            <form class="row g-3" method="post" action="{{ route('list-parameter.store') }}">
                                 @csrf
-
-
-
                                 <div class="col-md-3">
-
                                     {{-- nama parameter --}}
                                     <div class="py-2">
-                                        <label for="Name" class="form-label">Nama Parameter</label>
+                                        <label for="parameter" class="form-label">Nama Parameter</label>
                                         <input type="text"
                                             class="form-control 
-                                    @error('name') 
+                                    @error('parameter') 
                                         is-invalid
                                     @enderror
                                     "
-                                            id="name" name="name">
-                                        @error('name')
+                                            id="parameter" name="parameter">
+                                        @error('parameter')
                                             <div class="col-12">
                                                 <label class="form-check-label invalid-feedback">
                                                     {{ $message }}
@@ -133,7 +129,8 @@
                                     {{-- bidang --}}
                                     <div class="py-2">
                                         <label for="bidang_id" class="form-label">Pilih Bidang Pemeriksaan</label>
-                                        <select id="bidang_id" class="form-select">
+
+                                        <select id="bidang_id" class="form-select" name="bidang_id">
                                             @foreach ($dataBidang as $data)
                                                 <option value="{{ $data->id }}">{{ $data->name }}</option>
                                             @endforeach
@@ -151,8 +148,8 @@
 
                                     {{-- metode --}}
                                     <div class="py-2">
-                                        <label for="bidang_id" class="form-label">Pilih Metode Pemeriksaan</label>
-                                        <select id="bidang_id" class="form-select">
+                                        <label for="metode_id" class="form-label">Pilih Metode Pemeriksaan</label>
+                                        <select id="metode_id" class="form-select" name="metode_id">
                                             @foreach ($dataMetode as $data)
                                                 <option value="{{ $data->id }}">{{ $data->name }}</option>
                                             @endforeach
@@ -167,9 +164,6 @@
                                     @enderror
 
                                 </div>
-
-
-
 
 
                                 <div class="col-12">
