@@ -1,11 +1,11 @@
 @extends('layouts.main')
 @section('container')
     <div class="pagetitle">
-        <h1>Tambah Metode Pemeriksaan</h1>
+        <h1>Perbaharui Bidang Pemeriksaan</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Super Admin</a></li>
-                <li class="breadcrumb-item active">Tambah Metode Pemeriksaan</li>
+                <li class="breadcrumb-item active">Perbaharui Metode Pemeriksaan</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -19,13 +19,13 @@
                     <div class="card">
                         <div class="card-body p-3">
                             <!-- card -->
-                            
 
-                            <form class="row g-3" method="post" action="{{ route('store-metode') }}">
+                            <form class="row g-3" method="post" action="{{ route('list-metode.update', ['list_metode' => $data->id]) }}">
                                 @csrf
+                                @method('put')
                                 <div class="col-md-3">
                                   <label for="Name" class="form-label">Nama Metode</label>
-                                  <input type="text" class="form-control 
+                                  <input type="text" value="{{ $data->name }}" class="form-control
                                   @error('name') 
                                     is-invalid
                                   @enderror
