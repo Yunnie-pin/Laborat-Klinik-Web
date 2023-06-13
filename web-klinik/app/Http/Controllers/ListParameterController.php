@@ -82,9 +82,12 @@ class ListParameterController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ParameterPemeriksaan $parameterPemeriksaan)
+    public function destroy($parameterPemeriksaan)
     {
         //
+        ParameterPemeriksaan::destroy($parameterPemeriksaan);
 
+
+        return redirect('/list-parameter')->with('success','Parameter telah berhasil dihapus');
     }
 }
