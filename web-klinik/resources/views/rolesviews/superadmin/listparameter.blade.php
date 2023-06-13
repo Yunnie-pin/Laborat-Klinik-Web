@@ -16,8 +16,24 @@
             <!-- Left side columns -->
             <div class="col-lg-12">
                 <div class="row">
+
+
+
                     <div class="card">
                         <div class="card-body p-3">
+
+                            @if (session()->has('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            <div class="py-3">
+                                <a class="btn btn-success" href="{{ route('create-parameter') }}">
+                                    <i class="bi bi-plus">Tambah Parameter</i>
+                                </a>
+                            </div>
+
                             <!-- card -->
                             <div class="row p-3 border border-primary ">
 
@@ -47,19 +63,19 @@
                                                 <td>{{ $data->harga }}</td>
 
                                                 <td>
-                                                   <div class="row">
-                                                    <div class="col-auto mr-auto px-4 py-2">
-                                                        <button type="button" class="btn btn-warning">
-                                                            <i class="bi bi-pencil "></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="col px-4 py-2">
-                                                        <button type="button" class="btn btn-danger">
-                                                            <i class="bi bi-trash3 "></i>
-                                                        </button>
-                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-auto mr-auto px-4 py-2">
+                                                            <button type="button" class="btn btn-warning">
+                                                                <i class="bi bi-pencil "></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col px-4 py-2">
+                                                            <button type="button" class="btn btn-danger">
+                                                                <i class="bi bi-trash3 "></i>
+                                                            </button>
+                                                        </div>
 
-                                                   </div>
+                                                    </div>
 
                                                 </td>
                                             </tr>

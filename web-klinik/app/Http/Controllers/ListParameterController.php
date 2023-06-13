@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BidangPemeriksaan;
+use App\Models\MetodePemeriksaan;
 use App\Models\ParameterPemeriksaan;
 use Illuminate\Http\Request;
 
@@ -25,6 +27,12 @@ class ListParameterController extends Controller
     public function create()
     {
         //
+        $dataBidang = BidangPemeriksaan::all();
+        $dataMetode = MetodePemeriksaan::all();
+        return view('rolesviews.superadmin.create.createparameter',
+        ['dataBidang' => $dataBidang],
+        ['dataMetode' => $dataMetode]
+    );
     }
 
     /**
@@ -65,5 +73,6 @@ class ListParameterController extends Controller
     public function destroy(ParameterPemeriksaan $parameterPemeriksaan)
     {
         //
+
     }
 }

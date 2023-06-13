@@ -54,7 +54,8 @@ Route::resource('/list-metode', ListMetodeController::class)->names([
 ]);
 
 Route::resource('/list-parameter', ListParameterController::class)->names([
-    'index' => 'list-parameter'
+    'index' => 'list-parameter',
+    'create' => 'create-parameter',
 ]);
 
 
