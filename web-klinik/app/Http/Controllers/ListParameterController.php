@@ -18,7 +18,6 @@ class ListParameterController extends Controller
         $dataParameter = ParameterPemeriksaan::all();
 
         return view('rolesviews.superadmin.listparameter', ['dataParameter' => $dataParameter]);
-
     }
 
     /**
@@ -29,10 +28,11 @@ class ListParameterController extends Controller
         //
         $dataBidang = BidangPemeriksaan::all();
         $dataMetode = MetodePemeriksaan::all();
-        return view('rolesviews.superadmin.create.createparameter',
-        ['dataBidang' => $dataBidang],
-        ['dataMetode' => $dataMetode]
-    );
+        return view(
+            'rolesviews.superadmin.create.createparameter',
+            ['dataBidang' => $dataBidang],
+            ['dataMetode' => $dataMetode]
+        );
     }
 
     /**
@@ -41,6 +41,18 @@ class ListParameterController extends Controller
     public function store(Request $request)
     {
         //
+        $validateData = $request->validate([
+            'parameter' => 'required|max:30',
+            'bidang_id' => 'required',
+            'metode_id' => 'required',
+            'nilai_rujukan' => 'required',
+            'satuan' => 'required',
+            'harga' => 'required'
+        ]);
+
+        ParameterPemeriksaan::create($validateData);
+
+        return redirect('/list-parameter')->with('success', 'Parameter telah berhasil ditambahkan');
     }
 
     /**

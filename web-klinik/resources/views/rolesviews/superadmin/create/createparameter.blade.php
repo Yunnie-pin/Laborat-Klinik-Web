@@ -132,27 +132,39 @@
 
                                     {{-- bidang --}}
                                     <div class="py-2">
-                                        <label for="disabledSelect" class="form-label">Pilih Bidang Pemeriksaan</label>
-                                        <select id="disabledSelect" class="form-select">
-                                            @foreach($dataBidang as $data)
-                                            <option>{{ $data->name }}</option>
+                                        <label for="bidang_id" class="form-label">Pilih Bidang Pemeriksaan</label>
+                                        <select id="bidang_id" class="form-select">
+                                            @foreach ($dataBidang as $data)
+                                                <option value="{{ $data->id }}">{{ $data->name }}</option>
                                             @endforeach
-                                            
+
 
                                         </select>
+
+                                        @error('bidang_id')
+                                            <label class="form-check-label invalid-feedback">
+                                                {{ $message }}
+                                            </label>
+                                        @enderror
                                     </div>
                                     {{-- end bidang --}}
 
                                     {{-- metode --}}
                                     <div class="py-2">
-                                        <label for="disabledSelect" class="form-label">Pilih Metode Pemeriksaan</label>
-                                        <select id="disabledSelect" class="form-select">
-                                            @foreach($dataMetode as $data)
-                                            <option>{{ $data->name }}</option>
+                                        <label for="bidang_id" class="form-label">Pilih Metode Pemeriksaan</label>
+                                        <select id="bidang_id" class="form-select">
+                                            @foreach ($dataMetode as $data)
+                                                <option value="{{ $data->id }}">{{ $data->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     {{-- end metode --}}
+
+                                    @error('bidang_id')
+                                        <label class="form-check-label invalid-feedback">
+                                            {{ $message }}
+                                        </label>
+                                    @enderror
 
                                 </div>
 
