@@ -69,8 +69,15 @@ class ListBidangController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(BidangPemeriksaan $bidangPemeriksaan)
+    public function destroy($bidangPemeriksaan)
     {
         //
+     
+
+    // Lakukan operasi penghapusan data
+        BidangPemeriksaan::destroy($bidangPemeriksaan);
+
+
+        return redirect('/list-bidang')->with('success','Bidang telah berhasil dihapus');
     }
 }

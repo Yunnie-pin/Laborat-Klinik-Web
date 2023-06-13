@@ -5,7 +5,7 @@
         <h1>Data Bidang Pemeriksaan</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Super Admin</a></li>
+                <li class="breadcrumb-item"><a href="#">Super Admin</a></li>
                 <li class="breadcrumb-item active">Data Bidang Pemeriksaan</li>
             </ol>
         </nav>
@@ -58,9 +58,14 @@
                                                         </div>
                                                         <div class="col-auto px-2 py-2 mr-auto
                                                         ">
-                                                            <button type="button" class="btn btn-danger">
-                                                                <i class="bi bi-trash2 "> Hapus Data</i>
+                                                        <form action="{{ route('list-bidang.destroy', ['list_bidang' => $bidang->id]) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            
+                                                            <button class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus bidang ini?')">
+                                                                <i class="bi bi-trash2"> Hapus Data</i>
                                                             </button>
+                                                        </form>
                                                         </div>
 
                                                     </div>
