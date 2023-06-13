@@ -21,10 +21,10 @@
                         <div class="card-body p-3">
                             <!-- card -->
 
-                            @if(session()->has('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                              </div>
+                            @if (session()->has('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
                             @endif
 
                             <div class="py-3">
@@ -52,20 +52,26 @@
                                                 <td>
                                                     <div class="row ">
                                                         <div class="col-auto px-4 py-2">
-                                                            <button type="button" class="btn btn-warning">
+                                                            <a href="{{ route('list-bidang.edit', ['list_bidang' => $bidang->id]) }}"
+                                                                type="button" class="btn btn-warning">
                                                                 <i class="bi bi-pencil text-white"> Perbaharui Data</i>
-                                                            </button>
+                                                            </a>
                                                         </div>
-                                                        <div class="col-auto px-2 py-2 mr-auto
+
+                                                        <div
+                                                            class="col-auto px-2 py-2 mr-auto
                                                         ">
-                                                        <form action="{{ route('list-bidang.destroy', ['list_bidang' => $bidang->id]) }}" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            
-                                                            <button class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus bidang ini?')">
-                                                                <i class="bi bi-trash2"> Hapus Data</i>
-                                                            </button>
-                                                        </form>
+                                                            <form
+                                                                action="{{ route('list-bidang.destroy', ['list_bidang' => $bidang->id]) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+
+                                                                <button class="btn btn-danger"
+                                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus bidang ini?')">
+                                                                    <i class="bi bi-trash2"> Hapus Data</i>
+                                                                </button>
+                                                            </form>
                                                         </div>
 
                                                     </div>

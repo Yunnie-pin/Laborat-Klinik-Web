@@ -17,7 +17,6 @@ class ListMetodeController extends Controller
         $dataMetode = MetodePemeriksaan::all();
 
         return view('rolesviews.superadmin.listmetode', ['dataMetode' => $dataMetode]);
-
     }
 
     /**
@@ -26,6 +25,7 @@ class ListMetodeController extends Controller
     public function create()
     {
         //
+        return view('rolesviews.superadmin.create.createmetode');
     }
 
     /**
@@ -34,6 +34,13 @@ class ListMetodeController extends Controller
     public function store(Request $request)
     {
         //
+        $validateData = $request->validate([
+            'name' => 'required|max:30'
+        ]);
+
+        MetodePemeriksaan::create($validateData);
+
+        return redirect('/list-metode')->with('success', 'Metode telah berhasil ditambahkan');
     }
 
     /**
@@ -47,24 +54,41 @@ class ListMetodeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MetodePemeriksaan $metodePemeriksaan)
+    public function edit($metodePemeriksaan)
     {
         //
+        $data = MetodePemeriksaan::find($metodePemeriksaan);
+        return view('rolesviews.superadmin.edit.editmetode',[
+            'data' => $data,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MetodePemeriksaan $metodePemeriksaan)
+    public function update(Request $request, $metodePemeriksaan)
     {
         //
+        $validateData = $request->validate([
+            'name' => 'required|max:30'
+        ]);
+
+        MetodePemeriksaan::where('id', $metodePemeriksaan )->update($validateData);
+
+        return redirect('/list-metode')->with('success','Metode telah berhasil diperbaharui');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(MetodePemeriksaan $metodePemeriksaan)
+    public function destroy($metodePemeriksaan)
     {
         //
+        // Lakukan operasi penghapusan data
+        MetodePemeriksaan::destroy($metodePemeriksaan);
+
+
+        return redirect('/list-metode')->with('success', 'Metode telah berhasil dihapus');
     }
 }

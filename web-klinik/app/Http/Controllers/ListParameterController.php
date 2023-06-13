@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BidangPemeriksaan;
+use App\Models\MetodePemeriksaan;
 use App\Models\ParameterPemeriksaan;
 use Illuminate\Http\Request;
 
@@ -16,7 +18,6 @@ class ListParameterController extends Controller
         $dataParameter = ParameterPemeriksaan::all();
 
         return view('rolesviews.superadmin.listparameter', ['dataParameter' => $dataParameter]);
-
     }
 
     /**
@@ -25,6 +26,13 @@ class ListParameterController extends Controller
     public function create()
     {
         //
+        $dataBidang = BidangPemeriksaan::all();
+        $dataMetode = MetodePemeriksaan::all();
+        return view(
+            'rolesviews.superadmin.create.createparameter',
+            ['dataBidang' => $dataBidang],
+            ['dataMetode' => $dataMetode]
+        );
     }
 
     /**
@@ -33,6 +41,18 @@ class ListParameterController extends Controller
     public function store(Request $request)
     {
         //
+        $validateData = $request->validate([
+            'parameter' => 'required|max:30',
+            'bidang_id' => 'required',
+            'metode_id' => 'required',
+            'nilai_rujukan' => 'required',
+            'satuan' => 'required',
+            'harga' => 'required'
+        ]);
+
+        ParameterPemeriksaan::create($validateData);
+
+        return redirect('/list-parameter')->with('success', 'Parameter telah berhasil ditambahkan');
     }
 
     /**
@@ -41,14 +61,23 @@ class ListParameterController extends Controller
     public function show(ParameterPemeriksaan $parameterPemeriksaan)
     {
         //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ParameterPemeriksaan $parameterPemeriksaan)
+    public function edit($parameterPemeriksaan)
     {
         //
+        $dataBidang = BidangPemeriksaan::all();
+        $dataMetode = MetodePemeriksaan::all();
+        $data = ParameterPemeriksaan::find($parameterPemeriksaan);
+        return view('rolesviews.superadmin.edit.editparameter',[
+            'data' => $data,
+            'dataBidang' => $dataBidang,
+            'dataMetode' => $dataMetode
+        ],);
     }
 
     /**
@@ -62,8 +91,12 @@ class ListParameterController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ParameterPemeriksaan $parameterPemeriksaan)
+    public function destroy($parameterPemeriksaan)
     {
         //
+        ParameterPemeriksaan::destroy($parameterPemeriksaan);
+
+
+        return redirect('/list-parameter')->with('success','Parameter telah berhasil dihapus');
     }
 }

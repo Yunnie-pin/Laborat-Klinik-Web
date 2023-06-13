@@ -14,13 +14,25 @@
         <div class="row">
 
             <!-- Left side columns -->
-            <div class="col-lg-12">
+            <div class="col-lg-8">
                 <div class="row">
                     <div class="card">
                         <div class="card-body p-3">
                             <!-- card -->
-                            <div class="row p-3 border border-primary ">
 
+                            @if (session()->has('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            <div class="py-3">
+                                <a class="btn btn-success" href="{{ route('create-metode') }}">
+                                    <i class="bi bi-plus">Tambah Metode</i>
+                                </a>
+                            </div>
+
+                            <div class="row p-3 border border-primary ">
 
                                 <table id="myTable" class="table table-striped border-primary table-hover table-bordered">
                                     <thead>
@@ -40,16 +52,29 @@
                                                 <td>
                                                     <div class="container">
                                                         <div class="row">
-                                                            <div class="col-auto px-1 py-2">
-                                                                <button type="button" class="btn btn-warning">
-                                                                    <i class="bi bi-pencil "></i>
-                                                                </button>
+                                                            <div class="col-auto px-4 py-2">
+                                                                <a href="{{ route('list-metode.edit', ['list_metode' => $data->id]) }}"
+                                                                 class="btn btn-warning">
+                                                                    <i class="bi bi-pencil text-white"> Perbaharui Data</i>
+                                                                </a>
                                                             </div>
-                                                            <div class="col px-1 py-2">
-                                                                <button type="button" class="btn btn-danger">
-                                                                    <i class="bi bi-trash3 "></i>
+
+
+                                                            <div
+                                                            class="col-auto px-2 py-2 mr-auto
+                                                        ">
+                                                            <form
+                                                                action="{{ route('list-metode.destroy', ['list_metode' => $data->id]) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+
+                                                                <button class="btn btn-danger"
+                                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus bidang ini?')">
+                                                                    <i class="bi bi-trash2"> Hapus Data</i>
                                                                 </button>
-                                                            </div>
+                                                            </form>
+
 
                                                         </div>
                                                     </div>
