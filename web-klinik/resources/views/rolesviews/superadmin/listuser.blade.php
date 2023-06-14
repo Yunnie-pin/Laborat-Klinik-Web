@@ -65,9 +65,20 @@
                                                             </button>
                                                         </div>
                                                         <div class="col px-1 py-2">
-                                                            <button type="button" class="btn btn-danger">
-                                                                <i class="bi bi-trash3 "></i>
-                                                            </button>
+                                                            <form
+                                                                action="{{ route('list-user.destroy', ['list_user' => $user->id]) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+
+                                                                <button class="btn btn-danger"
+                                                                onclick="return confirm('Apakah Anda yakin ingin menghapus User ini?')"
+                                                                >
+                                                                    <i class="bi bi-trash3 "></i>
+                                                                </button>
+
+
+                                                            </form>
                                                         </div>
 
                                                     </div>

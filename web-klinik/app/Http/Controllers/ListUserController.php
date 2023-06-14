@@ -27,7 +27,7 @@ class ListUserController extends Controller
     {
         //
         $dataRoles = Roles::all();
-        return view('rolesviews.superadmin.create.createuser',['dataRoles' => $dataRoles]);
+        return view('rolesviews.superadmin.create.createuser', ['dataRoles' => $dataRoles]);
     }
 
     /**
@@ -51,11 +51,10 @@ class ListUserController extends Controller
             'password' => Hash::make($request->password),
             'nama_lengkap' => $request->nama_lengkap,
             'no_telp' => $request->no_telp,
-            'roles_id' => $request->roles_id  
+            'roles_id' => $request->roles_id
         ]);
 
-        return redirect('/list-user')->with('success','User telah berhasil ditambahkan');
-
+        return redirect('/list-user')->with('success', 'User telah berhasil ditambahkan');
     }
 
     /**
@@ -85,8 +84,11 @@ class ListUserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($user)
     {
-        //
+        // Lakukan operasi penghapusan data
+        User::destroy($user);
+        return redirect('/list-user')->with('success', 'User telah berhasil dihapus');
+
     }
 }
