@@ -62,7 +62,11 @@ Route::resource('/list-parameter', ListParameterController::class)->names([
 
 
 //Administrasi
-Route::get('/list-pasien', [ListPasienController::class, 'index'])->name('list-pasien');
+Route::resource('/list-pasien', ListPasienController::class)->names([
+    'index' => 'list-pasien',
+    'create' => 'create-pasien',
+]);
+
 
 
 // Route::get('/cekking', function () {
