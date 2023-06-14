@@ -33,6 +33,20 @@ class ListPasienController extends Controller
     public function store(Request $request)
     {
         //
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'tanggal_lahir'=> 'required',
+            'jenis_identitas' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_identitas' => 'required',
+            'no_telp' => 'required',
+            'bpjs' => 'required',
+            'alamat' => 'required|max:160'
+        ]);
+
+        Pasien::create($validateData);
+
+        return redirect('/list-pasien')->with('success', 'Pasien telah berhasil ditambahkan');
     }
 
     /**

@@ -122,7 +122,7 @@
 
                                     <div class="py-2">
                                         <label for="bpjs" class="form-label">BPJS</label>
-                                        <input type="number"
+                                        <input type="text" value="-"
                                             class="form-control 
                                         @error('bpjs') 
                                         is-invalid
@@ -165,7 +165,7 @@
                                     <div class="py-2">
                                         <label for="jenis_identitas" class="form-label">Jenis Kartu Identitas</label>
 
-                                        <select id="jenis_identitas" class="form-select" name="jenis_kelamin">
+                                        <select id="jenis_identitas" class="form-select" name="jenis_identitas">
                                                 <option value="KTP">KTP</option>
                                                 <option value="SIM">SIM</option>
                                                 <option value="PASSPORT">PASSPORT</option>

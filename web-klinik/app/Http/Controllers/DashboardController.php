@@ -8,6 +8,7 @@ use App\Models\Pasien;
 use App\Models\Pemeriksaan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
@@ -42,9 +43,9 @@ class DashboardController extends Controller
                     "tahunan" => $tahunan,
                 ],
                 "roles" => [
-                    "administrasi" => Roles::where('id','2')->count(),
-                    "poli" => Roles::where('id','3')->count(),
-                    "laborat" => Roles::where('id','4')->count(),
+                    "administrasi" => User::where('roles_id','2')->count(),
+                    "poli" => User::where('roles_id','3')->count(),
+                    "laborat" => User::where('roles_id','4')->count(),
                 ]
             ],
         ];
