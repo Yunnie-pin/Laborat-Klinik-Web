@@ -38,7 +38,9 @@ Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index'
 
 //Super Admin
 Route::resource('/list-user', ListUserController::class)->names([
-    'index' => 'list-user'
+    'index' => 'list-user',
+    'create' => 'create-user',
+    'store' => 'store-user'
 ]);;
 
 Route::resource('/list-bidang', ListBidangController::class)->names([
