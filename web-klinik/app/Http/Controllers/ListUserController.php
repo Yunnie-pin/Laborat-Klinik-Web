@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Roles;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ListUserController extends Controller
 {
@@ -24,6 +26,8 @@ class ListUserController extends Controller
     public function create()
     {
         //
+        $dataRoles = Roles::all();
+        return view('rolesviews.superadmin.create.createuser', ['dataRoles' => $dataRoles]);
     }
 
     /**
@@ -32,6 +36,21 @@ class ListUserController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'password' => 'required|min:8|max:30',
+            'nama_lengkap' => 'required',
+            'no_telp' => 'required',
+            'roles_id' => 'required'
+        ]);
+
+        User::create([
+            'password' => Hash::make($request->password),
+            'nama_lengkap' => $request->nama_lengkap,
+            'no_telp' => $request->no_telp,
+            'roles_id' => $request->roles_id
+        ]);
+
+        return redirect('/list-user')->with('success', 'User telah berhasil ditambahkan');
     }
 
     /**
@@ -45,24 +64,52 @@ class ListUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit($user)
     {
         //
+        $dataRoles = Roles::all();
+        $data = User::find($user);
+        return view('rolesviews.superadmin.edit.edituser',[
+            'data' => $data,
+            'dataRoles' => $dataRoles
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $user)
     {
         //
+
+        $request->validate([
+            'email' => 'required|max:30',
+            'password' => 'required|min:8|max:30',
+            'nama_lengkap' => 'required',
+            'no_telp' => 'required',
+            'roles_id' => 'required'
+        ]);
+
+        User::where('username', $user )->update([
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'nama_lengkap' => $request->nama_lengkap,
+            'no_telp' => $request->no_telp,
+            'roles_id' => $request->roles_id
+        ]);
+
+        return redirect('/list-user')->with('success','User telah berhasil diperbaharui');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($user)
     {
-        //
+        // Lakukan operasi penghapusan data
+        User::destroy($user);
+        return redirect('/list-user')->with('success', 'User telah berhasil dihapus');
+
     }
 }

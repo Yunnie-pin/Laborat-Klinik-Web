@@ -38,7 +38,9 @@ Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index'
 
 //Super Admin
 Route::resource('/list-user', ListUserController::class)->names([
-    'index' => 'list-user'
+    'index' => 'list-user',
+    'create' => 'create-user',
+    'store' => 'store-user'
 ]);;
 
 Route::resource('/list-bidang', ListBidangController::class)->names([
@@ -60,7 +62,11 @@ Route::resource('/list-parameter', ListParameterController::class)->names([
 
 
 //Administrasi
-Route::get('/list-pasien', [ListPasienController::class, 'index'])->name('list-pasien');
+Route::resource('/list-pasien', ListPasienController::class)->names([
+    'index' => 'list-pasien',
+    'create' => 'create-pasien',
+]);
+
 
 
 // Route::get('/cekking', function () {

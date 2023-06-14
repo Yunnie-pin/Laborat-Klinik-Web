@@ -18,7 +18,19 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-body p-3">
-                            
+
+                            @if (session()->has('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            <div class="py-3">
+                                <a class="btn btn-success" href="{{ route('create-user') }}">
+                                    <i class="bi bi-plus">Pendaftaran Petugas</i>
+                                </a>
+                            </div>
+
                             <!-- card -->
                             <div class="row p-3 border border-primary ">
 
@@ -36,35 +48,50 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($dataUser as $user)
-                                        <tr>
-                                            <td>{{ $user->id }}</td>
-                                            <td>{{ $user->nama_lengkap }}</td>
-                                            <td>{{ $user->username }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->no_telp }}</td>
-                                            <td>{{ $user->roles->name }}</td>
-                                            <td>
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col px-1 py-2">
-                                                            <button type="button" class="btn btn-warning">
-                                                                <i class="bi bi-pencil "></i>
-                                                            </button>
-                                                        </div>
-                                                        <div class="col px-1 py-2">
-                                                            <button type="button" class="btn btn-danger">
-                                                                <i class="bi bi-trash3 "></i>
-                                                            </button>
-                                                        </div>
+                                        @foreach ($dataUser as $user)
+                                            <tr>
+                                                <td>{{ $user->id }}</td>
+                                                <td>{{ $user->nama_lengkap }}</td>
+                                                <td>{{ $user->username }}</td>
+                                                <td>{{ $user->email }}</td>
+                                                <td>{{ $user->no_telp }}</td>
+                                                <td>{{ $user->roles->name }}</td>
+                                                <td>
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col px-1 py-2">
 
+
+                                                                <a href="{{ route('list-user.edit', ['list_user' => $user->id]) }}"
+                                                                    class="btn btn-warning">
+                                                                    <i class="bi bi-pencil text-white"></i>
+                                                                </a>
+
+
+                                                            </div>
+                                                            <div class="col px-1 py-2">
+                                                                <form
+                                                                    action="{{ route('list-user.destroy', ['list_user' => $user->id]) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+
+                                                                    <button class="btn btn-danger"
+                                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus User ini?')">
+                                                                        <i class="bi bi-trash3 "></i>
+                                                                    </button>
+
+
+                                                                </form>
+                                                            </div>
+
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
                                         @endforeach
 
-                                        
+
                                     </tbody>
 
                                 </table>

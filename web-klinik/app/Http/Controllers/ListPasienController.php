@@ -24,6 +24,7 @@ class ListPasienController extends Controller
     public function create()
     {
         //
+        return view('rolesviews.administrasi.create.createpasien');
     }
 
     /**

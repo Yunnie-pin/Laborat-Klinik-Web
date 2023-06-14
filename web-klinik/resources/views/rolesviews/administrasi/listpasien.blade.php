@@ -18,6 +18,19 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-body p-3">
+
+                            @if (session()->has('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            <div class="py-3">
+                                <a class="btn btn-success" href="{{ route('create-pasien') }}">
+                                    <i class="bi bi-plus">Registrasi Pasien</i>
+                                </a>
+                            </div>
+
                             <!-- card -->
                             <div class="row p-3 border border-primary ">
 
@@ -55,7 +68,7 @@
                                                     </td>
                                                 @elseif ($pasien->jenis_identitas == 'SIM')
                                                     <td><button type="button" class="btn btn-outline-warning"> SIM
-                                                        </button>   
+                                                        </button>
                                                     </td>
                                                 @elseif ($pasien->jenis_identitas == 'PASSPORT')
                                                     <td><button type="button" class="btn btn-outline-success"> PASSPORT
