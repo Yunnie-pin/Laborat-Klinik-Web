@@ -83,9 +83,21 @@ class ListParameterController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ParameterPemeriksaan $parameterPemeriksaan)
+    public function update(Request $request, $parameterPemeriksaan)
     {
         //
+        $validateData = $request->validate([
+            'parameter' => 'required|max:30',
+            'bidang_id' => 'required',
+            'metode_id' => 'required',
+            'nilai_rujukan' => 'required',
+            'satuan' => 'required',
+            'harga' => 'required'
+        ]);
+
+        ParameterPemeriksaan::where('id', $parameterPemeriksaan )->update($validateData);
+
+        return redirect('/list-parameter')->with('success','Parameter telah berhasil diperbaharui');
     }
 
     /**

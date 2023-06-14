@@ -28,26 +28,16 @@
                             'roles_id' => 1, --}}
 
 
-                            <form class="row g-3" method="post" action="{{ route('list-user.update', ['list_user' => $data->id]) }}">
+                            <form class="row g-3" method="post" action="{{ route('list-user.update', ['list_user' => $data->username]) }}">
                                 @csrf
+                                 @method('put')
                                 <div class="col-md-3">
                                     {{-- Username --}}
                                     <div class="py-2">
                                         <label for="username" class="form-label">Username</label>
                                         <input type="text" value="{{ $data->username }}"
-                                            class="form-control 
-                                    @error('username') 
-                                        is-invalid
-                                    @enderror
-                                    "
-                                            id="username" name="username">
-                                        @error('username')
-                                            <div class="col-12">
-                                                <label class="form-check-label invalid-feedback">
-                                                    {{ $message }}
-                                                </label>
-                                            </div>
-                                        @enderror
+                                            class="form-control"
+                                            >
                                     </div>
 
                                     {{-- end username --}}
@@ -79,7 +69,7 @@
 
                                     <div class="py-2">
                                         <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
-                                        <input type="text" value="{{ $data->email }}"
+                                        <input type="text" value="{{ $data->nama_lengkap }}"
                                             class="form-control 
                                         @error('nama_lengkap') 
                                         is-invalid
