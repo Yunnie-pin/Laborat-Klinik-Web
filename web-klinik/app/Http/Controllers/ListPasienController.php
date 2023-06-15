@@ -33,6 +33,20 @@ class ListPasienController extends Controller
     public function store(Request $request)
     {
         //
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'tanggal_lahir' => 'required',
+            'jenis_identitas' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_identitas' => 'required',
+            'no_telp' => 'required',
+            'bpjs' => 'required',
+            'alamat' => 'required|max:160'
+        ]);
+
+        Pasien::create($validateData);
+
+        return redirect('/list-pasien')->with('success', 'Pasien telah berhasil ditambahkan');
     }
 
     /**
@@ -41,29 +55,57 @@ class ListPasienController extends Controller
     public function show(Pasien $pasien)
     {
         //
+
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pasien $pasien)
+    public function edit($pasien)
     {
         //
+        $data = Pasien::find($pasien);
+        return view('rolesviews.administrasi.edit.editpasien',
+        [
+            'pasien' => $data,
+        ]
+    );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pasien $pasien)
+    public function update(Request $request, $pasien)
     {
         //
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'tanggal_lahir' => 'required',
+            'jenis_identitas' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_identitas' => 'required',
+            'no_telp' => 'required',
+            'bpjs' => 'required',
+            'alamat' => 'required|max:160'
+        ]);
+
+
+        Pasien::where('id', $pasien )->update($validateData);
+
+        return redirect('/list-pasien')->with('success','Data Pasien telah berhasil diperbaharui');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pasien $pasien)
+    public function destroy($pasien)
     {
         //
+        Pasien::destroy($pasien);
+
+
+        return redirect('/list-pasien')->with('success', 'Pasien telah berhasil dihapus');
     }
 }

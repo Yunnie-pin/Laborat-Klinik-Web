@@ -87,14 +87,30 @@
                                                     <div class="container">
                                                         <div class="row">
                                                             <div class="col px-1 py-2">
-                                                                <button type="button" class="btn btn-warning">
-                                                                    <i class="bi bi-pencil "></i>
-                                                                </button>
+
+                                                                
+                                                                <a href="{{ route('list-pasien.edit', ['list_pasien' => $pasien->id]) }}"
+                                                                    class="btn btn-warning">
+                                                                    <i class="bi bi-pencil text-white"></i>
+                                                                </a>
+
+
                                                             </div>
                                                             <div class="col px-1 py-2">
-                                                                <button type="button" class="btn btn-danger">
-                                                                    <i class="bi bi-trash3 "></i>
-                                                                </button>
+                                                                <form
+                                                                    action="{{ route('list-pasien.destroy', ['list_pasien' => $pasien->id]) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+
+                                                                    <button class="btn btn-danger"
+                                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data Pasien ini?')">
+                                                                        <i class="bi bi-trash3 "></i>
+                                                                    </button>
+
+
+                                                                </form>
+
                                                             </div>
 
                                                         </div>

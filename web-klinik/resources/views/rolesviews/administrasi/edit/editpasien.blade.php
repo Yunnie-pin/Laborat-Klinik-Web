@@ -1,11 +1,11 @@
 @extends('layouts.main')
 @section('container')
     <div class="pagetitle">
-        <h1>Registrasi Pasien</h1>
+        <h1>Perbaharui data Pasien</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Administrasi</a></li>
-                <li class="breadcrumb-item active">Registrasi Pasien</li>
+                <li class="breadcrumb-item active">Perbaharui data Pasien</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -30,13 +30,14 @@
                             'alamat' --}}
 
 
-                            <form class="row g-3" method="post" action="{{ route('list-pasien.store') }}">
+                            <form class="row g-3" method="post" action="{{ route('list-pasien.update',['list_pasien' => $pasien->id]) }}">
                                 @csrf
+                                @method('put')
                                 <div class="col-md-3">
                                     {{-- nama parameter --}}
                                     <div class="py-2">
                                         <label for="nama" class="form-label">Nama</label>
-                                        <input type="text"
+                                        <input type="text" value="{{ $pasien->nama }}"
                                             class="form-control 
                                     @error('nama') 
                                         is-invalid
@@ -58,7 +59,7 @@
 
                                     <div class="py-2">
                                         <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                                        <input type="text"
+                                        <input type="text" value="{{ $pasien->tanggal_lahir }}"
                                             class="form-control 
                                         @error('tanggal_lahir') 
                                         is-invalid
@@ -101,7 +102,7 @@
 
                                     <div class="py-2">
                                         <label for="no_telp" class="form-label">No telepon</label>
-                                        <input type="number"
+                                        <input type="number" value="{{ $pasien->no_telp }}"
                                             class="form-control 
                                         @error('no_telp') 
                                         is-invalid
@@ -122,7 +123,7 @@
 
                                     <div class="py-2">
                                         <label for="bpjs" class="form-label">BPJS</label>
-                                        <input type="text" value="-"
+                                        <input type="text" value="{{ $pasien->bpjs }}"
                                             class="form-control 
                                         @error('bpjs') 
                                         is-invalid
@@ -164,7 +165,7 @@
 
                                     <div class="py-2">
                                         <label for="no_identitas" class="form-label">Nomer Identitas</label>
-                                        <input type="number"
+                                        <input type="number" value="{{ $pasien->no_identitas }}"
                                             class="form-control 
                                         @error('bpjs') 
                                         is-invalid
@@ -189,7 +190,7 @@
                                         is-invalid
                                         @enderror
                                         "
-                                            id="alamat" name="alamat"></textarea>
+                                            id="alamat" name="alamat">{{ $pasien->alamat }}</textarea>
 
 
                                         @error('alamat')
