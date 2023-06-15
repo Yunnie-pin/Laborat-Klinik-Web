@@ -18,7 +18,6 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-body p-3">
-                            
                             <!-- card -->
                             <div class="row p-3 border border-primary ">
 
@@ -63,7 +62,7 @@
                                                 </a>
                                               
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                  <li><a class="dropdown-item" href="#">Cetak Hasil</a></li>
+                                                  <li><a class="dropdown-item" href="{{ route('cetak-hasil', ['id' => $pemeriksaan->id]) }}">Cetak Hasil</a></li>
                                                   <li><a class="dropdown-item" href="#">Cetak Nota </a></li>
 
                                                 </ul>

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('keterangan_pemeriksaans', function (Blueprint $table) {
+        Schema::create('keterangans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pemeriksaan_id')
                 ->constrained('pemeriksaans');
