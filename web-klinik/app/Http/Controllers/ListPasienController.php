@@ -35,7 +35,7 @@ class ListPasienController extends Controller
         //
         $validateData = $request->validate([
             'nama' => 'required',
-            'tanggal_lahir'=> 'required',
+            'tanggal_lahir' => 'required',
             'jenis_identitas' => 'required',
             'jenis_kelamin' => 'required',
             'no_identitas' => 'required',
@@ -76,8 +76,12 @@ class ListPasienController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pasien $pasien)
+    public function destroy($pasien)
     {
         //
+        Pasien::destroy($pasien);
+
+
+        return redirect('/list-pasien')->with('success', 'Pasien telah berhasil dihapus');
     }
 }

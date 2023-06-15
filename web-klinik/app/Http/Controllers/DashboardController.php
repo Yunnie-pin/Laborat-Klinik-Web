@@ -48,6 +48,7 @@ class DashboardController extends Controller
                     "laborat" => User::where('roles_id','4')->count(),
                 ]
             ],
+            
         ];
         //
         return view(
