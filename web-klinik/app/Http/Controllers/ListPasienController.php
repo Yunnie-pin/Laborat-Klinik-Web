@@ -76,9 +76,25 @@ class ListPasienController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pasien $pasien)
+    public function update(Request $request, $pasien)
     {
         //
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'tanggal_lahir' => 'required',
+            'jenis_identitas' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_identitas' => 'required',
+            'no_telp' => 'required',
+            'bpjs' => 'required',
+            'alamat' => 'required|max:160'
+        ]);
+
+
+        Pasien::where('id', $pasien )->update($validateData);
+
+        return redirect('/list-pasien')->with('success','Data Pasien telah berhasil diperbaharui');
+
     }
 
     /**

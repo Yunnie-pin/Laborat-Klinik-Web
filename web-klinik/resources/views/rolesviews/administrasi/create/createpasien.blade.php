@@ -143,23 +143,6 @@
                                 </div>
                                 <div class="col-md-3">
 
-                                    {{-- jenis kelamin --}}
-                                    <div class="py-2">
-                                        <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-
-                                        <select id="jenis_kelamin" class="form-select" name="jenis_kelamin">
-                                                <option value="L">Laki-Laki</option>
-                                                <option value="P">Perempuan</option>
-                                           
-                                        </select>
-
-                                        @error('jenis_kelamin')
-                                            <label class="form-check-label invalid-feedback">
-                                                {{ $message }}
-                                            </label>
-                                        @enderror
-                                    </div>
-                                    {{-- end jenis kelamin --}}
 
                                     {{-- jenis kelamin --}}
                                     <div class="py-2">
