@@ -54,9 +54,9 @@
             </a>
         </li><!-- End Dashboard Nav -->
         <li class="nav-item">
-            <a class="nav-link " href="#">
+            <a class="nav-link " href="{{ route('hasil-pemeriksaan') }}">
                 <i class="bi bi-grid"></i>
-                <span>Registrasi Pasien</span>
+                <span>Hasil Pemeriksaan</span>
             </a>
         </li><!-- End Dashboard Nav -->
     </ul>

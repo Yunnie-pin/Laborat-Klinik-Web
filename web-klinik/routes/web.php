@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HasilPemeriksaanController;
 use App\Http\Controllers\ListBidangController;
 use App\Http\Controllers\ListMetodeController;
 use App\Http\Controllers\ListParameterController;
@@ -67,7 +68,9 @@ Route::resource('/list-pasien', ListPasienController::class)->names([
     'create' => 'create-pasien',
 ]);
 
-
+Route::resource('/hasil-pemeriksaan', HasilPemeriksaanController::class)->names([
+    'index' => 'hasil-pemeriksaan'
+]);
 
 // Route::get('/cekking', function () {
 //     return view('login');
