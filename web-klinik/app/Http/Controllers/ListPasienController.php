@@ -55,14 +55,22 @@ class ListPasienController extends Controller
     public function show(Pasien $pasien)
     {
         //
+
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pasien $pasien)
+    public function edit($pasien)
     {
         //
+        $data = Pasien::find($pasien);
+        return view('rolesviews.administrasi.edit.editpasien',
+        [
+            'pasien' => $data,
+        ]
+    );
     }
 
     /**

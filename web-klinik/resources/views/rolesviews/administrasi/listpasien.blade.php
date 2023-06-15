@@ -87,9 +87,14 @@
                                                     <div class="container">
                                                         <div class="row">
                                                             <div class="col px-1 py-2">
-                                                                <button type="button" class="btn btn-warning">
-                                                                    <i class="bi bi-pencil "></i>
-                                                                </button>
+
+                                                                
+                                                                <a href="{{ route('list-pasien.edit', ['list_pasien' => $pasien->id]) }}"
+                                                                    class="btn btn-warning">
+                                                                    <i class="bi bi-pencil text-white"></i>
+                                                                </a>
+
+
                                                             </div>
                                                             <div class="col px-1 py-2">
                                                                 <form
