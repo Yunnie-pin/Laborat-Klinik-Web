@@ -1,17 +1,19 @@
 <?php
 
-use App\Http\Controllers\CetakHasilController;
-use App\Http\Controllers\CetakNotaPemeriksaan;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HasilPemeriksaanController;
-use App\Http\Controllers\ListBidangController;
-use App\Http\Controllers\ListMetodeController;
-use App\Http\Controllers\ListParameterController;
-use App\Http\Controllers\ListPasienController;
-use App\Http\Controllers\ListUserController;
+use App\Models\Pemeriksaan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ListUserController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CetakHasilController;
+use App\Http\Controllers\CetakNotaPemeriksaan;
+use App\Http\Controllers\ListBidangController;
+use App\Http\Controllers\ListMetodeController;
+use App\Http\Controllers\ListPasienController;
+use App\Http\Controllers\PemeriksaanController;
+use App\Http\Controllers\ListParameterController;
+use App\Http\Controllers\HasilPemeriksaanController;
 use App\Http\Controllers\RiwayatPemeriksaanController;
 
 /*
@@ -76,6 +78,15 @@ Route::resource('/hasil-pemeriksaan', HasilPemeriksaanController::class)->names(
 
 Route::get('/cetak-hasil/{id}', [CetakHasilController::class, 'show'])->name('cetak-hasil');
 Route::get('/cetak-nota/{id}', [CetakNotaPemeriksaan::class, 'show'])->name('cetak-nota');
+
+
+//Poli
+Route::resource('/review-pemeriksaan', PemeriksaanController::class)->names([
+    'index' => 'list-review-pemeriksaan',
+    'show' => 'show-review-pemeriksaan',
+    
+]);
+
 
 // Route::get('/cekking', function () {
 //     return view('login');
