@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CetakHasilController;
+use App\Http\Controllers\CetakNotaPemeriksaan;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HasilPemeriksaanController;
 use App\Http\Controllers\ListBidangController;
@@ -74,6 +75,7 @@ Route::resource('/hasil-pemeriksaan', HasilPemeriksaanController::class)->names(
 ]);
 
 Route::get('/cetak-hasil/{id}', [CetakHasilController::class, 'show'])->name('cetak-hasil');
+Route::get('/cetak-nota/{id}', [CetakNotaPemeriksaan::class, 'show'])->name('cetak-nota');
 
 // Route::get('/cekking', function () {
 //     return view('login');

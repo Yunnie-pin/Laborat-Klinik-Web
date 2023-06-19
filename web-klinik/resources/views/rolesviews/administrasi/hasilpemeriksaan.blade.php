@@ -63,7 +63,7 @@
                                               
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                   <li><a class="dropdown-item" href="{{ route('cetak-hasil', ['id' => $pemeriksaan->id]) }}">Cetak Hasil</a></li>
-                                                  <li><a class="dropdown-item" href="#">Cetak Nota </a></li>
+                                                  <li><a class="dropdown-item" href="{{ route('cetak-nota', ['id' => $pemeriksaan->id]) }}">Cetak Nota </a></li>
 
                                                 </ul>
                                               </div>

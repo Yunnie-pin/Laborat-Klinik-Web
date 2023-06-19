@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8" http-equiv="Content-Type" content="text/html" />
-    <title>Nota Hasil Pemeriksaan</title>
+    <title>Cetak Hasil Pemeriksaan</title>
     <style>
         @page {
             margin: 0px;
@@ -37,7 +37,7 @@
 
 <body>
     <h3 style="text-align: center">
-        Cetak Nota <br />
+        Cetak Hasil <br />
         Web Klinik
     </h3>
     <div style="width: 70%;margin:auto">
@@ -99,7 +99,9 @@
             <tr>
                 <th style="width: 2rem;">No.</th>
                 <th>Nama Pemeriksaan</th>
-                <th>Harga</th>
+                <th>Hasil Pemeriksaan</th>
+                <th>Kesan Pemeriksaan</th>
+                <th>Catatan Pemeriksaan</th>
             </tr>
         </thead>
 
@@ -108,19 +110,16 @@
             
                 <tr>
                     <th style="width: 2rem;">{{ $loop->iteration }}</th>
-                    <td>{{ $value->parameter->parameter }}</td>
-                    <td>{{ $value->parameter->harga }}</td>
+                    <th>{{ $value->parameter->parameter }}</th>
+                    <th>{{ $value->hasil }}</th>
+                    <th>{{ $value->kesan }}</th>
+                    <th>{{ $value->catatan }}</th>
                 </tr>
                 <?php $total = $total + $value->parameter->harga ?>
                
             @endforeach
         </tbody>
-        <tfoot>
-            <tr>
-                <th colspan="2">Total Harga</th>
-                <th>{{ $total }}</th>
-            </tr>
-        </tfoot>
+
     </table>
 </body>
 
