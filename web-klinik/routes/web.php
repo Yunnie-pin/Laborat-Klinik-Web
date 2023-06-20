@@ -1,14 +1,20 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ListBidangController;
-use App\Http\Controllers\ListMetodeController;
-use App\Http\Controllers\ListParameterController;
-use App\Http\Controllers\ListPasienController;
-use App\Http\Controllers\ListUserController;
+use App\Models\Pemeriksaan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ListUserController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CetakHasilController;
+use App\Http\Controllers\CetakNotaPemeriksaan;
+use App\Http\Controllers\ListBidangController;
+use App\Http\Controllers\ListMetodeController;
+use App\Http\Controllers\ListPasienController;
+use App\Http\Controllers\PemeriksaanController;
+use App\Http\Controllers\ListParameterController;
+use App\Http\Controllers\HasilPemeriksaanController;
+use App\Http\Controllers\RegistrasiPemeriksaanController;
 use App\Http\Controllers\RiwayatPemeriksaanController;
 
 /*
@@ -66,6 +72,29 @@ Route::resource('/list-pasien', ListPasienController::class)->names([
     'index' => 'list-pasien',
     'create' => 'create-pasien',
 ]);
+
+Route::resource('/hasil-pemeriksaan', HasilPemeriksaanController::class)->names([
+    'index' => 'hasil-pemeriksaan'
+]);
+
+Route::get('/cetak-hasil/{id}', [CetakHasilController::class, 'show'])->name('cetak-hasil');
+Route::get('/cetak-nota/{id}', [CetakNotaPemeriksaan::class, 'show'])->name('cetak-nota');
+
+
+//Poli
+Route::resource('/registrasi-pemeriksaan', RegistrasiPemeriksaanController::class)->names([
+    'index' => 'registrasi-pemeriksaan',
+    'store' => 'store-pemeriksaan'
+]);
+
+
+
+//Laborat
+Route::resource('/antrean-pemeriksaan', PemeriksaanController::class)->names([
+    'index' => 'list-antrean-pemeriksaan',
+    'show' => 'show-antrean-pemeriksaan',
+]);
+
 
 
 

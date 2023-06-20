@@ -51,7 +51,7 @@
                                         @enderror
                                     </div>
 
-                                    {{-- end nama parameter --}}
+                                    {{-- end nama parameter  --}}
                                     {{-- nilai rujukan --}}
 
 
@@ -87,7 +87,6 @@
                                         @enderror
                                         "
                                             id="satuan" name="satuan">
-
 
                                         @error('satuan')
                                             <label class="form-check-label invalid-feedback">

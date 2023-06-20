@@ -22,7 +22,7 @@ class KeteranganSeeder extends Seeder
         for ($i = 0; $i < 20; $i++) {
             $d['created_at'] = $date->format('Y-m-d H:i:s');
             $d['updated_at'] = $date->format('Y-m-d H:i:s');
-            DB::table('keterangan_pemeriksaans')->insert([
+            DB::table('keterangans')->insert([
                 'pemeriksaan_id' => rand(1, 20),
                 'bidang_id' => rand(1, 8),
                 'parameter_id' => rand(1, 5),

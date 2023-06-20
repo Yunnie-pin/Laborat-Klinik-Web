@@ -18,6 +18,11 @@
         <div class="col-lg-12">
             <div class="row">
                 <div class="card">
+                    @if (session()->has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
                     <div class="card-body">
                         <div class="row">
                             <!-- Sales Card -->

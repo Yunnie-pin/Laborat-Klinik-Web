@@ -31,5 +31,9 @@ class Keterangan extends Model
     {
         return $this->hasOne(MetodePemeriksaan::class, 'id', 'metode_id');
     }
+    public function pemeriksaan()
+    {
+        return $this->belongsTo(Pemeriksaan::class, 'pemeriksaan_id','id');
+    }
 
 }
