@@ -14,6 +14,7 @@ use App\Http\Controllers\ListPasienController;
 use App\Http\Controllers\PemeriksaanController;
 use App\Http\Controllers\ListParameterController;
 use App\Http\Controllers\HasilPemeriksaanController;
+use App\Http\Controllers\RegistrasiPemeriksaanController;
 use App\Http\Controllers\RiwayatPemeriksaanController;
 
 /*
@@ -81,11 +82,20 @@ Route::get('/cetak-nota/{id}', [CetakNotaPemeriksaan::class, 'show'])->name('cet
 
 
 //Poli
-Route::resource('/review-pemeriksaan', PemeriksaanController::class)->names([
-    'index' => 'list-review-pemeriksaan',
-    'show' => 'show-review-pemeriksaan',
-    
+Route::resource('/registrasi-pemeriksaan', RegistrasiPemeriksaanController::class)->names([
+    'index' => 'registrasi-pemeriksaan',
+    'store' => 'store-pemeriksaan'
 ]);
+
+
+
+//Laborat
+Route::resource('/antrean-pemeriksaan', PemeriksaanController::class)->names([
+    'index' => 'list-antrean-pemeriksaan',
+    'show' => 'show-antrean-pemeriksaan',
+]);
+
+
 
 
 // Route::get('/cekking', function () {

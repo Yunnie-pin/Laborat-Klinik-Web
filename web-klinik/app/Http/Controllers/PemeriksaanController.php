@@ -9,9 +9,7 @@ use App\Http\Requests\UpdatePemeriksaanRequest;
 class PemeriksaanController extends Controller
 {
     public function index(){
-        $dataPemeriksaan = Pemeriksaan::where('status_id','4')->get();
-
-        return view('rolesviews.poli.reviewPemeriksaan', ['dataPemeriksaan' => $dataPemeriksaan]);
+        $dataPemeriksaan = Pemeriksaan::where('status_id','1')->get();
+        return view('rolesviews.laborat.antreanpemeriksaan', ['dataPemeriksaan' => $dataPemeriksaan]);
     }
-
 }

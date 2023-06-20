@@ -65,13 +65,13 @@
         <li class="nav-heading">Poli Pages</li>
 
         <li class="nav-item">
-            <a class="nav-link " href="#">
+            <a class="nav-link " href="{{ route('registrasi-pemeriksaan') }}">
                 <i class="bi bi-grid"></i>
                 <span>Registrasi Pemeriksaan</span>
             </a>
         </li><!-- End Dashboard Nav -->
         <li class="nav-item">
-            <a class="nav-link " href="{{ route('list-review-pemeriksaan') }}">
+            <a class="nav-link " href="#">
                 <i class="bi bi-grid"></i>
                 <span>Review Pemeriksaan</span>
             </a>
@@ -81,13 +81,12 @@
         <li class="nav-heading">Laborat Pages</li>
 
         <li class="nav-item">
-            <a class="nav-link " href="#">
+            <a class="nav-link " href="{{ route('list-antrean-pemeriksaan') }}">
                 <i class="bi bi-grid"></i>
-                <span>Input Hasil Pemeriksaan</span>
+                <span>Antrean Pemeriksaan</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
-        </li><!-- End Dashboard Nav -->
 
         
     </ul>
