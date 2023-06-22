@@ -81,6 +81,8 @@ Route::get('/cetak-hasil/{id}', [CetakHasilController::class, 'show'])->name('ce
 Route::get('/cetak-nota/{id}', [CetakNotaPemeriksaan::class, 'show'])->name('cetak-nota');
 
 
+
+
 //Poli
 Route::resource('/registrasi-pemeriksaan', RegistrasiPemeriksaanController::class)->names([
     'index' => 'registrasi-pemeriksaan',
@@ -95,6 +97,7 @@ Route::resource('/antrean-pemeriksaan', PemeriksaanController::class)->names([
     'show' => 'show-antrean-pemeriksaan',
 ]);
 
+Route::get('/getDataPasien/{id}', [RegistrasiPemeriksaanController::class, 'getDataPasien']);
 
 
 
