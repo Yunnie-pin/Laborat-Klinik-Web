@@ -111,10 +111,76 @@
 
                                 </div>
 
+                                <h5 class="pt-3">Data Pemeriksaan</h5>
+                                <hr>
+
+                                <div class="col-md-3 pb-5">
+                                    <div >
+                                        <label for="bidang" class="form-label">Pilih Bidang</label>
+
+                                        <select id="bidang" class="form-select" name="bidang_id">
+                                            @foreach ($databidang as $data)
+                                            <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                            @endforeach
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 pb-5">
+                                    <div>
+                                        <label for="metode" class="form-label">Pilih Metode</label>
+                                        <select id="metode" class="form-select" name="metode_id">
+                                            @foreach ($datametode as $data)
+                                            <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 pb-5">
+                                    <div>
+                                        <label for="metode" class="form-label">Pilih Parameter</label>
+                                        <select id="metode" class="form-select" name="parameter_id">
+                                            @foreach ($dataparameter as $data)
+                                            <option value="{{ $data->id }}">{{ $data->parameter }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 pt-4">
+                                    <div>
+                                        <button class="btn btn-success">+ Tambah Pemeriksaan</button>
+                                    </div>
+
+                                </div>
+                                
+
+                                <table id="myTable" class="table table-striped border-primary table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Bidang</th>
+                                            <th>Metode</th>
+                                            <th>Parameter</th>
+                                            <th>Nilai Rujukan</th>
+                                            <th>Satuan</th>
+                                            <th>Harga</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                   
+
+                                        
+                                    </tbody>
+                                </table>
 
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
+
                             </form>
 
                             <!-- end card -->
