@@ -82,7 +82,10 @@ class RegistrasiPemeriksaanController extends Controller
         return redirect('/dashboard')->with('success', 'Pemeriksaan telah berhasil ditambahkan');
     }
 
-    
+    public function getDataPasien($id){
+        $dataPasien = Pasien::find($id);
+        return response()->json($dataPasien);
+    }
 
 
 }
