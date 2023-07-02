@@ -6,17 +6,22 @@ use Livewire\Component;
 use App\Models\BidangPemeriksaan;
 use App\Models\MetodePemeriksaan;
 use App\Models\ParameterPemeriksaan;
+use Illuminate\Http\Request;
 
 class DynamicRegistrasiPemeriksaan extends Component
 {
     public $input = [];
-    public $requestKeterangan = [];
+    public $keterangan = [];
     public $i = 0;
     public $bidangId;
     public $metodeId;
     public $parameterId;
- 
 
+    public function mount(Request $request){
+        if($request->session()->has('requestKeterangan')){
+            $this->input = $request->session()->get('requestKeterangan');
+        }
+    }
 
     public function add($i)
     {
@@ -32,18 +37,24 @@ class DynamicRegistrasiPemeriksaan extends Component
             'harga' => $parameter->harga,
         ]);
 
-        array_push($this->requestKeterangan, [
+        array_push($this->keterangan, [
             'bidang_id' => $bidang->id,
             'metode_id' => $metode->id,
             'parameter_id' => $parameter->id,
         ]);
 
-
+        session()->put('requestKeterangan', $this->input);
+        session()->put('keterangan', $this->keterangan);
     }
+
 
     public function remove($key)
     {
         unset($this->input[$key]);
+        unset($this->keterangan[$key]);
+
+        session()->put('requestKeterangan', $this->input);
+        session()->put('keterangan', $this->keterangan);
     }
 
     public function render()

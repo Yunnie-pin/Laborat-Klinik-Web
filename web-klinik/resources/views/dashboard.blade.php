@@ -22,7 +22,13 @@
                     <div class="alert alert-success" role="alert">
                         {{ session('success') }}
                     </div>
-                @endif
+                    @endif
+
+                    @if (session()->has('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    </div>
+                    @endif
                     <div class="card-body">
                         <div class="row">
                             <!-- Sales Card -->

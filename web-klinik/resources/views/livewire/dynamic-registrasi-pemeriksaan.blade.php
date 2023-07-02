@@ -37,7 +37,7 @@
     
         <div class="col-md-3 pt-4">
             <div>
-                <button wire:click="add({{ $i }})" id="buttonAddPemeriksaan" class="btn btn-success p-2">+ Tambah Pemeriksaan</button>
+                <a wire:click="add({{ $i }})" id="buttonAddPemeriksaan" class="btn btn-success p-2">+ Tambah Pemeriksaan</a>
             </div>
         </div>
     </div>
