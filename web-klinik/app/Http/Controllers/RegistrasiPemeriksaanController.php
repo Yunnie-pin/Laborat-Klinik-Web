@@ -40,45 +40,32 @@ class RegistrasiPemeriksaanController extends Controller
 
     public function store(Request $request)
     {
-        $rules = [
+
+        $validateData = $request->validate([
             'pasien_id'     => 'required',
-            'status_id'     => 'required',
-            'keterangan'    => 'required'
-        ];
-        $validator = Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            return new PostResource(false, $validator->errors()->all());
+            'user_id'     => 'required',
+        ]);
+        $keterangan = $request->session()->get('keterangan');
+
+        $validateData['status_id'] = 1;
+        
+        if($keterangan == null){
+            return redirect('/dashboard')->with('error', 'Pemeriksaan gagal ditambahkan, silahkan tambahkan keterangan');
         }
-        $pasien = Pasien::where('id', $request->pasien_id)->first();
-        if (!$pasien) {
-            return new PostResource(false, "Pasien tidak ditemukan");
-        }
-        $status = Status::where('id', $request->status_id)->first();
-        if (!$status) {
-            return new PostResource(false, "Status tidak ditemukan");
+
+        $result = Pemeriksaan::create($validateData);
+
+        foreach ($keterangan as $value) {
+            Keterangan::create([
+                'pemeriksaan_id' => $result->id,
+                'bidang_id' => $value['bidang_id'],
+                'metode_id' => $value['metode_id'],
+                'parameter_id' => $value['parameter_id'],
+            ]);
         }
         
-        if (!is_array($request->keterangan) && $request->keterangan != null) {
-            return new PostResource(false, "Keterangan not in a List");
-        }
-        $data = [
-            'user_id' => $request->user()->id,
-            'pasien_id' => $request->pasien_id,
-            'status_id' => $request->status_id,
-        ];
-        $pemeriksaan = Pemeriksaan::create($data);
-
-        if ($request->keterangan) {
-            try {
-                foreach ($request->keterangan as $keterangan) {
-                    $keterangan['pemeriksaan_id'] = $pemeriksaan->id;
-                    Keterangan::create($keterangan);
-                }
-            } catch (\Throwable $th) {
-                $pemeriksaan->delete();
-                return new PostResource(false, "Cek Kembali List Keterangan Pemeriksaan");
-            }
-        }
+        $request->session()->forget('requestKeterangan');
+        $request->session()->forget('keterangan');
         
         return redirect('/dashboard')->with('success', 'Pemeriksaan telah berhasil ditambahkan');
     }
