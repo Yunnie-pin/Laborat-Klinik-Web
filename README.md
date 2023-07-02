@@ -36,12 +36,10 @@ User petugas yang memiliki role Poli memiliki beberapa fitur berupa :
 
 Install <>
 ```bash
-  git clone https://github.com/Yunnie-pin/proyek_pemrograman_sem6
-  cd proyek_pemrograman_sem6
-  php artisan serve
-  
-  //Build Apk
-  php artisan build
+1. jalankan `composer install` sebelum menggunakan aplikasi untuk menginstall vendor.
+2. jalankan `mysql server` dan ubah username, password, dan nama database pada file `.env`
+3. jalankan `php artisan migrate` untuk menginisialisasi database, opsi alternatif bila ingin menambahkan seeder ke dalam database tambahkan opsi `--seed`.
+4. jalankan `php artisan serve` untuk menjalankan server api
 ```
     
 ## Tech
