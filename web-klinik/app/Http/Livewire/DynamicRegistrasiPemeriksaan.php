@@ -9,25 +9,36 @@ use App\Models\ParameterPemeriksaan;
 
 class DynamicRegistrasiPemeriksaan extends Component
 {
-    public $input;
-    public $i;
+    public $input = [];
+    public $requestKeterangan = [];
+    public $i = 0;
     public $bidangId;
     public $metodeId;
     public $parameterId;
  
-    public function mount(){
-        $this->input = [];
-        $this->i = 0;
-    }
+
 
     public function add($i)
     {
-        $this->i = $i + 1;
+        $this->i = $i++;
+        $bidang = json_decode($this->bidangId);
+        $metode = json_decode($this->metodeId);
+        $parameter = json_decode($this->parameterId);
+
         array_push($this->input, [
-            'bidang_id' => $this->bidangId,
-            'metode_id' => $this->metodeId,
-            'parameter_id' => $this->parameterId,
+            'bidang' => $bidang->name,
+            'metode' => $metode->name,
+            'parameter' => $parameter->parameter,
+            'harga' => $parameter->harga,
         ]);
+
+        array_push($this->requestKeterangan, [
+            'bidang_id' => $bidang->id,
+            'metode_id' => $metode->id,
+            'parameter_id' => $parameter->id,
+        ]);
+
+
     }
 
     public function remove($key)
