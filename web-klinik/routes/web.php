@@ -16,6 +16,7 @@ use App\Http\Controllers\ListParameterController;
 use App\Http\Controllers\HasilPemeriksaanController;
 use App\Http\Controllers\RegistrasiPemeriksaanController;
 use App\Http\Controllers\RiwayatPemeriksaanController;
+use App\Http\Livewire\DynamicRegistrasiPemeriksaan;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,7 +90,7 @@ Route::resource('/registrasi-pemeriksaan', RegistrasiPemeriksaanController::clas
     'store' => 'store-pemeriksaan'
 ]);
 
-
+Route::get('/dynamic-registrasi-pemeriksaan', DynamicRegistrasiPemeriksaan::class)->name('dynamic-registrasi-pemeriksaan');
 
 //Laborat
 Route::resource('/antrean-pemeriksaan', PemeriksaanController::class)->names([

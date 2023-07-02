@@ -32,6 +32,8 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/style.css')  }}" rel="stylesheet">
 
+    <!-- LiveWire -->
+    @livewireStyles
 
     <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.css" rel="stylesheet" />
 
@@ -67,7 +69,8 @@
     <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.js"></script>
     <!-- Template Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>
-
+    <!-- LiveWire -->
+    @livewireScripts
 
     </body>
 
