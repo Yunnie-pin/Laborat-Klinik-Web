@@ -28,13 +28,20 @@
                             'no_telp',
                             'bpjs',
                             'alamat' --}}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>Data Pasien</h5>
+                                    <hr>
+                                </div>
 
-                            <h5>Data Pasien</h5>
-                            <hr>
-                            <form class="row g-3" method="post" action="{{ route('registrasi-pemeriksaan.create') }}">
-                                @csrf
+                                <div class="col-md-6">
+                                    <h5>Data Dokter</h5>
+                                    <hr>
+                                </div>
+                            </div>
+
+                            <div class="row g-3" >
                                 <div class="col-md-3">
-
                                     <div class="py-2">
                                         <label for="pasien_id" class="form-label">Id Pasien</label>
 
@@ -45,6 +52,8 @@
                                         </select>
 
                                     </div>
+
+                                    
 
 
 
@@ -111,77 +120,55 @@
 
                                 </div>
 
+
+                                <div class="col-md-3">
+                                    <div class="py-2">
+                                        <label for="user_id" class="form-label">Id Dokter</label>
+
+                                        <input type="text" readonly value="{{ auth()->user()->id }}"
+                                            class="form-control"
+                                            id="user_id" name="user_id">
+
+                                    </div>
+
+
+
+                                    {{-- nama parameter --}}
+
+                                    <div class="py-2">
+                                        <label for="nama" class="form-label">Nama</label>
+                                        <input type="text" disabled value="{{ auth()->user()->nama_lengkap }}"
+                                            class="form-control"
+                                            id="namadokter" >
+
+                                    </div>
+
+                                    {{-- end nama parameter --}}
+                                    
+                                    <div class="py-2">
+                                        <label for="no_telp_dokter" class="form-label">No telp</label>
+                                        <input type="text" disabled value="{{ auth()->user()->no_telp }}"
+                                            class="form-control"
+                                            id="no_telp_dokter" >
+
+                                    </div>
+                                    
+
+
+                                </div>
+
                                 <h5 class="pt-3">Data Pemeriksaan</h5>
                                 <hr>
 
-                                <div class="col-md-3 pb-5">
-                                    <div >
-                                        <label for="bidang" class="form-label">Pilih Bidang</label>
+            
 
-                                        <select id="bidang" class="form-select" name="bidang_id">
-                                            @foreach ($databidang as $data)
-                                            <option value="{{ $data->id }}">{{ $data->name }}</option>
-                                            @endforeach
-                                        </select>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 pb-5">
-                                    <div>
-                                        <label for="metode" class="form-label">Pilih Metode</label>
-                                        <select id="metode" class="form-select" name="metode_id">
-                                            @foreach ($datametode as $data)
-                                            <option value="{{ $data->id }}">{{ $data->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 pb-5">
-                                    <div>
-                                        <label for="metode" class="form-label">Pilih Parameter</label>
-                                        <select id="metode" class="form-select" name="parameter_id">
-                                            @foreach ($dataparameter as $data)
-                                            <option value="{{ $data->id }}">{{ $data->parameter }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 pt-4">
-                                    <div>
-                                        <button class="btn btn-success">+ Tambah Pemeriksaan</button>
-                                    </div>
-
-                                </div>
-                                
-
-                                <table id="myTable" class="table table-striped border-primary table-hover table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Bidang</th>
-                                            <th>Metode</th>
-                                            <th>Parameter</th>
-                                            <th>Nilai Rujukan</th>
-                                            <th>Satuan</th>
-                                            <th>Harga</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                   
-
-                                        
-                                    </tbody>
-                                </table>
+                                <livewire:dynamic-registrasi-pemeriksaan/>
 
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
 
-                            </form>
+                            </div>
 
                             <!-- end card -->
                         </div>
@@ -193,12 +180,14 @@
     </section>
 
     <script>
+        const addButton = document.querySelector('#buttonAddPemeriksaan');
+
         const idPasien = document.querySelector('#pasien_id');
         const nama = document.querySelector('#nama');
         const jeniskelamin = document.querySelector('#jenis_kelamin');
         const bpjs = document.querySelector('#bpjs');
         const jeniskartuidentitas = document.querySelector('#jenis_identitas');
-        const nomeridentitas = document.querySelector('#no_identitas')
+        const nomeridentitas = document.querySelector('#no_identitas');
 
         idPasien.addEventListener('change', function(){
             fetch('/getDataPasien/' + idPasien.value)
@@ -212,6 +201,8 @@
                     }
                 )
         });
+
+
 
     </script>
 @endsection

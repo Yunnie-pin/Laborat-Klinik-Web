@@ -31,7 +31,8 @@ class RegistrasiPemeriksaanController extends Controller
             'databidang' => $databidang,
             'datametode' => $datametode,
             'dataparameter' => $dataparameter,
-            'datapasien' => $datapasien
+            'datapasien' => $datapasien,
+            'keterangan' => [],
         ]);
     }
 
