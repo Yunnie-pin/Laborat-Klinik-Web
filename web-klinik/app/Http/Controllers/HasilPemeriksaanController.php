@@ -13,8 +13,7 @@ class HasilPemeriksaanController extends Controller
     public function index()
     {
         //
-        //Jika status = selesai(3)
-        $dataPemeriksaan = Pemeriksaan::where('status_id','3')->get();
+        $dataPemeriksaan = Pemeriksaan::where('status_id','3')->latest()->simplePaginate(10);
 
         return view('rolesviews.administrasi.hasilpemeriksaan', ['dataPemeriksaan' => $dataPemeriksaan]);
     }

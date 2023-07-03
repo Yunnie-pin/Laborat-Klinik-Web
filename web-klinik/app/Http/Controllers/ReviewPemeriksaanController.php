@@ -46,17 +46,34 @@ class ReviewPemeriksaanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pemeriksaan $pemeriksaan)
+    public function edit($id)
     {
         //
+        $dataPemeriksaan = Pemeriksaan::find($id);
+        $dataKeterangan = Keterangan::where('pemeriksaan_id', $id)->get();
+        return view('rolesviews.poli.reviewpemeriksaan', [
+            'dataPemeriksaan' => $dataPemeriksaan,
+            'dataKeterangan' => $dataKeterangan
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pemeriksaan $pemeriksaan)
-    {
-        //
+    public function update(Request $request, $id){
+        $dataPemeriksaan = Pemeriksaan::find($id);
+        $dataPemeriksaan->update([
+            'status_id' => 3
+        ]);
+
+        $keterangan = Keterangan::where('pemeriksaan_id', $id)->get();
+        foreach($keterangan as $item){
+            $item->update([
+                'catatan' => $request->input('catatan')[$item->id],
+                'kesan' => $request->input('kesan')[$item->id],
+            ]);
+        }
+        return redirect('/dashboard')->with('success', 'Pemeriksaan telah berhasil diperbarui');
     }
 
     /**

@@ -4,7 +4,7 @@
         <h1>Review Pemeriksaan</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.html">Poli</a></li>
                 <li class="breadcrumb-item active">Review Pemeriksaan</li>
             </ol>
         </nav>
@@ -74,7 +74,7 @@
 
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('antrean-pemeriksaan.edit', ['antrean_pemeriksaan' => $pemeriksaan->id]) }}">Proses pemeriksaan</a>
+                                                        <a class="dropdown-item" href="{{ route('review-pemeriksaan.edit', ['review_pemeriksaan' => $pemeriksaan->id]) }}">Proses pemeriksaan</a>
                                                     </li>
                                                     <li>
                                                         <form
