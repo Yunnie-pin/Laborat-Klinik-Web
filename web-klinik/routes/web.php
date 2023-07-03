@@ -15,6 +15,7 @@ use App\Http\Controllers\PemeriksaanController;
 use App\Http\Controllers\ListParameterController;
 use App\Http\Controllers\HasilPemeriksaanController;
 use App\Http\Controllers\RegistrasiPemeriksaanController;
+use App\Http\Controllers\ReviewPemeriksaanController;
 use App\Http\Controllers\RiwayatPemeriksaanController;
 use App\Http\Livewire\DynamicRegistrasiPemeriksaan;
 
@@ -82,12 +83,14 @@ Route::get('/cetak-hasil/{id}', [CetakHasilController::class, 'show'])->name('ce
 Route::get('/cetak-nota/{id}', [CetakNotaPemeriksaan::class, 'show'])->name('cetak-nota');
 
 
-
-
 //Poli
 Route::resource('/registrasi-pemeriksaan', RegistrasiPemeriksaanController::class)->names([
     'index' => 'registrasi-pemeriksaan',
     'store' => 'store-pemeriksaan'
+]);
+
+Route::resource('/review-pemeriksaan', ReviewPemeriksaanController::class)->names([
+    'index' => 'review-pemeriksaan',
 ]);
 
 Route::get('/dynamic-registrasi-pemeriksaan', DynamicRegistrasiPemeriksaan::class)->name('dynamic-registrasi-pemeriksaan');
