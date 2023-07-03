@@ -74,7 +74,7 @@
 
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                     <li>
-                                                        <a class="dropdown-item" href="#">Proses pemeriksaan</a>
+                                                        <a class="dropdown-item" href="{{ route('antrean-pemeriksaan.edit', ['antrean_pemeriksaan' => $pemeriksaan->id]) }}">Proses pemeriksaan</a>
                                                     </li>
                                                     <li>
                                                         <form

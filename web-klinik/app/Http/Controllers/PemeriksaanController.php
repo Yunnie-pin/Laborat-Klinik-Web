@@ -6,6 +6,7 @@ use App\Models\Pemeriksaan;
 use App\Http\Requests\StorePemeriksaanRequest;
 use App\Http\Requests\UpdatePemeriksaanRequest;
 use App\Models\Keterangan;
+use Illuminate\Http\Request;
 
 class PemeriksaanController extends Controller
 {
@@ -14,9 +15,30 @@ class PemeriksaanController extends Controller
         return view('rolesviews.laborat.antreanpemeriksaan', ['dataPemeriksaan' => $dataPemeriksaan]);
     }
 
-    public function create(){
-        return view('rolesviews.laborat.registrasipemeriksaan');
+    public function edit($id){
+        $dataPemeriksaan = Pemeriksaan::find($id);
+        $dataKeterangan = Keterangan::where('pemeriksaan_id', $id)->get();
+        return view('rolesviews.laborat.prosespemeriksaan', [
+            'dataPemeriksaan' => $dataPemeriksaan,
+            'dataKeterangan' => $dataKeterangan
+        ]);
     }
+
+    public function update(Request $request, $id){
+        $dataPemeriksaan = Pemeriksaan::find($id);
+        $dataPemeriksaan->update([
+            'status_id' => 2
+        ]);
+
+        $keterangan = Keterangan::where('pemeriksaan_id', $id)->get();
+        foreach($keterangan as $item){
+            $item->update([
+                'hasil' => $request->input('hasil')[$item->id],
+            ]);
+        }
+        return redirect('/dashboard')->with('success', 'Pemeriksaan telah berhasil diperbarui');
+    }
+
     
     public function destroy($id){
 
