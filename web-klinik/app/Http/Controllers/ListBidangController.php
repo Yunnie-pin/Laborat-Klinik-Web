@@ -84,9 +84,7 @@ class ListBidangController extends Controller
      */
     public function destroy($bidangPemeriksaan)
     {
-        //
-     
-
+    
     // Lakukan operasi penghapusan data
         BidangPemeriksaan::destroy($bidangPemeriksaan);
 
