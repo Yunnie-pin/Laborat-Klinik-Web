@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pemeriksaan;
-use App\Http\Requests\StorePemeriksaanRequest;
-use App\Http\Requests\UpdatePemeriksaanRequest;
 use App\Models\Keterangan;
 use Illuminate\Http\Request;
 
@@ -41,12 +39,10 @@ class PemeriksaanController extends Controller
 
     
     public function destroy($id){
-
         $keterangan = Keterangan::where('pemeriksaan_id', $id)->get();
         foreach($keterangan as $item){
             $item->delete();
         }
-        
         Pemeriksaan::destroy($id);
         return redirect('/antrean-pemeriksaan')->with('success', 'Pemeriksaan telah berhasil dihapus');
     }
