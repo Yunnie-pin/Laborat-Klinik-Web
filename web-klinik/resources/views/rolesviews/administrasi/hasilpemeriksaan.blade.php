@@ -24,6 +24,7 @@
                                 <table id="myTable" class="table table-striped border-primary table-hover table-bordered">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>id pemeriksaan</th>
                                             <th>Nama Pasien</th>
                                             <th>Dokter</th>
@@ -33,8 +34,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($dataPemeriksaan as $pemeriksaan)
+                                        @foreach($dataPemeriksaan as $key => $pemeriksaan)
                                         <tr>
+                                            <td>{{ $key+1 }}</td>
                                             <td>{{ $pemeriksaan->id }}</td>
                                             <td>{{ $pemeriksaan->pasiens->nama }}</td>
                                             <td>{{ $pemeriksaan->user->nama_lengkap }}</td>
