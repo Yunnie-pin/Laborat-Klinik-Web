@@ -8,15 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Nama Steps
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        port: ${{ secrets.SSH_PORT }}
-        password: ${{ secrets.SSH_PASS }}
-        script: |
-          cd /home/gulagulali/project/Laborat-Klinik-Web
-          git pull
-          sudo pm2 stop laravel-app
-          php artisan migrate:fresh --seed
-          sudo pm2 start laravel-app
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          port: ${{ secrets.SSH_PORT }}
+          password: ${{ secrets.SSH_PASS }}
+          script: |
+            cd /home/gulagulali/project/Laborat-Klinik-Web
+            git pull
+            sudo pm2 stop laravel-app
+            php artisan migrate:fresh --seed
+            sudo pm2 start laravel-app
