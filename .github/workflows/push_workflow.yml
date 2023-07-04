@@ -14,14 +14,8 @@ jobs:
           host: github.com
           private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: Ubah directory ke root project
-      run: cd /home/gulagulali/project/Laborat-Klinik-Web
-    - name: Pull Repo terbaru
-      run: git pull
-    - name: Stop pm2
-      run: sudo pm2 stop laravel-app
-    - name: Migration
-      run: php artisan migrate
-    - name: Start pm2
-      run: sudo pm2 start laravel-app
-
+      run: cd /home
+    - name: cek directory
+      run: ls
+ 
  
