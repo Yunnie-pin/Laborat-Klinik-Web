@@ -14,7 +14,7 @@ jobs:
           host: github.com
           private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: Ubah directory ke root project
-      run: cd /home/project/Laborat-Klinik-Web
+      run: cd project/Laborat-Klinik-Web
     - name: Pull Repo terbaru
       run: git pull
     - name: Stop pm2
