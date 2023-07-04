@@ -9,14 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Setup SSH
-      uses: MrSquaare/ssh-setup-action@v1
+      uses: appleboy/ssh-action@master
       with:
           host: github.com
           private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-    - name: configure SSH
-      run : |
-        mkdir -p ~/.ssh
-        echo "$SSH_AUTH_SOCK" > ~/.ssh/ssh_auth_sock
-        echo "export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock" >> $GITHUB_ENV
- 
+    - name: Ubah directory ke root project
+      run: |
+        cd /home/gulagulali/project/Laborat-Klinik-Web
+        git pull
+        sudo pm2 stop laravel-app
+        php artisan migrate:fresh --seed
+        sudo pm2 start laravel-app
+
  
