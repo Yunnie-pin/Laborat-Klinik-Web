@@ -2,23 +2,21 @@ name: remote ssh command
 on: 
   push:
     branches: [ main ]
-
+     
 jobs:
-  test:
-    name: Run test
+  deploytolive:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup SSH
+      - name: Nama Steps
       uses: appleboy/ssh-action@master
       with:
-          host: github.com
-          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-    - name: Ubah directory ke root project
-      run: |
-        cd /home/gulagulali/project/Laborat-Klinik-Web
-        git pull
-        sudo pm2 stop laravel-app
-        php artisan migrate:fresh --seed
-        sudo pm2 start laravel-app
-
- 
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        port: ${{ secrets.SSH_PORT }}
+        password: ${{ secrets.SSH_PASS }}
+        script: |
+          cd /home/gulagulali/project/Laborat-Klinik-Web
+          git pull
+          sudo pm2 stop laravel-app
+          php artisan migrate:fresh --seed
+          sudo pm2 start laravel-app
