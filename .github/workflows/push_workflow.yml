@@ -7,7 +7,7 @@ jobs:
   deploytolive:
     runs-on: ubuntu-latest
     steps:
-      - name: Nama Steps
+      - name: Refresh Laravel app
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}

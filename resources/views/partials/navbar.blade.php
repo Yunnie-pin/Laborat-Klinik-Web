@@ -21,7 +21,7 @@
                     <h6> Hai ! {{auth()->user()->nama_lengkap}} </h6>
                     <span> {{auth()->user()->roles->name}} </span>
                 </li>
-                <li>
+                {{-- <li>
                     <hr class="dropdown-divider">
                 </li>
                 <li>
@@ -29,7 +29,7 @@
                         <i class="bi bi-gear"></i>
                         <span>Settings</span>
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     <hr class="dropdown-divider">
                 </li>
