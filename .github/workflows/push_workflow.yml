@@ -13,9 +13,10 @@ jobs:
       with:
           host: github.com
           private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-    - name: Ubah directory ke root project
-      run: cd /home/runner
-    - name: cek directory
-      run: ls
+    - name: configure SSH
+      run : |
+        mkdir -p ~/.ssh
+        echo "$SSH_AUTH_SOCK" > ~/.ssh/ssh_auth_sock
+        echo "export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock" >> $GITHUB_ENV
  
  
