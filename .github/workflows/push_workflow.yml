@@ -3,25 +3,25 @@ on:
   push:
     branches: [ main ]
 
-      jobs:
-        test:
-          name: Run test
-          runs-on: ubuntu-latest
-          steps:
-          - name: Setup SSH
-            uses: MrSquaare/ssh-setup-action@v1
-            with:
-                host: github.com
-                private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          - name: Ubah directory ke root project
-            run: cd /home/project/Laborat-Klinik-Web
-          - name: Pull Repo terbaru
-            run: git pull
-          - name: Stop pm2
-            run: sudo pm2 stop laravel-app
-          - name: Migration
-            run: php artisan migrate
-          - name: Start pm2
-            run: sudo pm2 start laravel-app
+jobs:
+  test:
+    name: Run test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup SSH
+      uses: MrSquaare/ssh-setup-action@v1
+      with:
+          host: github.com
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Ubah directory ke root project
+      run: cd /home/project/Laborat-Klinik-Web
+    - name: Pull Repo terbaru
+      run: git pull
+    - name: Stop pm2
+      run: sudo pm2 stop laravel-app
+    - name: Migration
+      run: php artisan migrate
+    - name: Start pm2
+      run: sudo pm2 start laravel-app
 
  
