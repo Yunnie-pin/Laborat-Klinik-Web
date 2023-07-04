@@ -3,14 +3,14 @@ on:
   push:
     branches: [ main ]
 
-      jobs:
-        test:
-          name: Run test
-          runs-on: ubuntu-latest
-          steps:
-          - name: Setup SSH
-            uses: MrSquaare/ssh-setup-action@v1
-            with:
-                host: github.com
-                private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+jobs:
+  test:
+    name: Run test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup SSH
+      uses: MrSquaare/ssh-setup-action@v1
+      with:
+          host: github.com
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
              
