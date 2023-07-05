@@ -67,4 +67,10 @@ class RiwayatPemeriksaanController extends Controller
     {
         //
     }
+
+    public function search($search){
+        $dataPemeriksaan = Pemeriksaan::where('status_id', 'like', '%'.$search.'%')->paginate(10);
+        return view('riwayatPemeriksaan', ['dataPemeriksaan' => $dataPemeriksaan]);
+    }
+
 }

@@ -39,10 +39,10 @@ Route::post('/login', [LoginController::class,'authenticate'])->name('login');
 
 Route::post('/logout', [LogoutController::class,'logout'])->name('logout');
 
-
 Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard')->middleware('auth');
 
 Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index'])->name('riwayat-pemeriksaan');
+Route::get('/riwayat-pemeriksaan/{search}', [RiwayatPemeriksaanController::class, 'search'])->name('riwayat-pemeriksaan-search');
 
 //Super Admin
 Route::resource('/list-user', ListUserController::class)->names([
@@ -104,7 +104,3 @@ Route::resource('/antrean-pemeriksaan', PemeriksaanController::class)->names([
 Route::get('/getDataPasien/{id}', [RegistrasiPemeriksaanController::class, 'getDataPasien']);
 
 
-
-// Route::get('/cekking', function () {
-//     return view('login');
-// });
