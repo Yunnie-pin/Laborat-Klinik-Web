@@ -16,35 +16,37 @@
         <hr>
 
 
-        <li class="nav-heading">Super Admin Pages</li>
+        @if (auth()->user()->roles->name == 'Super Admin' || auth()->user()->roles->name == 'Super Admin')
+            <li class="nav-heading">Super Admin Pages</li>
 
-        <li class="nav-item">
-            <a class="nav-link " href="{{ route('list-user') }}">
-                <i class="bi bi-grid"></i>
-                <span>Data Petugas / User</span>
-            </a>
-        </li><!-- End Dashboard Nav -->
-        <li class="nav-item">
-            <a class="nav-link " href="{{ route('list-bidang') }}">
-                <i class="bi bi-grid"></i>
-                <span>Data Bidang Pemeriksaan</span>
-            </a>
-        </li><!-- End Dashboard Nav -->
-        <li class="nav-item">
-            <a class="nav-link " href="{{ route('list-metode') }}">
-                <i class="bi bi-grid"></i>
-                <span>Data Metode Pemeriksaan</span>
-            </a>
-        </li><!-- End Dashboard Nav -->
-        <li class="nav-item">
-            <a class="nav-link " href="{{ route('list-parameter') }}">
-                <i class="bi bi-grid"></i>
-                <span>Data Parameter </span>
-            </a>
-        </li><!-- End Dashboard Nav -->
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('list-user') }}">
+                    <i class="bi bi-grid"></i>
+                    <span>Data Petugas / User</span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('list-bidang') }}">
+                    <i class="bi bi-grid"></i>
+                    <span>Data Bidang Pemeriksaan</span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('list-metode') }}">
+                    <i class="bi bi-grid"></i>
+                    <span>Data Metode Pemeriksaan</span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('list-parameter') }}">
+                    <i class="bi bi-grid"></i>
+                    <span>Data Parameter </span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+        @endif
         
 
-
+        @if(auth()->user()->roles->name == 'Admininstrasi' || auth()->user()->roles->name == 'Super Admin')
         <li class="nav-heading">Administrasi Pages</li>
 
         <li class="nav-item">
@@ -59,9 +61,9 @@
                 <span>Hasil Pemeriksaan</span>
             </a>
         </li><!-- End Dashboard Nav -->
+        @endif
 
-
-
+        @if(auth()->user()->roles->name == 'Poli' || auth()->user()->roles->name == 'Super Admin')
         <li class="nav-heading">Poli Pages</li>
 
         <li class="nav-item">
@@ -77,7 +79,10 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
+        @endif
 
+
+        @if(auth()->user()->roles->name == 'Laborat' || auth()->user()->roles->name == 'Super Admin')
         <li class="nav-heading">Laborat Pages</li>
 
         <li class="nav-item">
@@ -86,8 +91,7 @@
                 <span>Antrean Pemeriksaan</span>
             </a>
         </li><!-- End Dashboard Nav -->
-
-
+        @endif
         
     </ul>
 

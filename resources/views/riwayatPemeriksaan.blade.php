@@ -22,11 +22,19 @@
                             <!-- card -->
                             <div class="row p-3 border border-primary ">
 
-                                <div class="p-3">
-                                    <button type="button" class="btn btn-outline-primary">Belum Diproses</button>
-                                    <button type="button" class="btn btn-outline-warning">Menunggu Direview</button>
-                                    <button type="button" class="btn btn-outline-success">Selesai</button>
-                                    <button type="button" class="btn btn-outline-danger">Dibatalkan</button>
+                                <div class="p-3 row justify-content-start">
+                                    <form class="col" action="{{ route('riwayat-pemeriksaan-search', ['search' => '1']) }}" method="GET">
+                                        <button type="submit" class="btn btn-outline-primary ">Belum Diproses</button>
+                                    </form>
+                                    <form class="col" action="{{ route('riwayat-pemeriksaan-search', ['search' => '2']) }}" method="GET">
+                                        <button type="submit" class="btn btn-outline-warning">Menunggu Direview</button>
+                                    </form>
+                                    <form class="col" action="{{ route('riwayat-pemeriksaan-search', ['search' => '3']) }}" method="GET">
+                                        <button type="submit" class="btn btn-outline-success">Selesai</button>
+                                    </form>
+                                    <form class="col" action="{{ route('riwayat-pemeriksaan-search', ['search' => '4']) }}" method="GET">
+                                        <button type="submit" class="btn btn-outline-danger">Dibatalkan</button>
+                                    </form>
                                 </div>
 
                                 <table id="myTable" class="table table-striped border-primary table-hover table-bordered">
@@ -37,7 +45,6 @@
                                             <th>Dokter</th>
                                             <th>Waktu</th>
                                             <th>Proses</th>
-                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -64,18 +71,6 @@
                                                 {{ $pemeriksaan->status->name }}
                                             </td>
                                             @endif
-                                            <td><div class="dropdown">
-                                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                  Opsi
-                                                </a>
-                                              
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                  <li><a class="dropdown-item" href="#">Cetak Hasil</a></li>
-                                                  <li><a class="dropdown-item" href="#">Cetak Nota </a></li>
-
-                                                </ul>
-                                              </div>
-                                            </td>
                                         </tr>
                                         @endforeach
 

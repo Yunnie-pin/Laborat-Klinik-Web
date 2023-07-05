@@ -27,7 +27,7 @@
                 <li>
                     <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                         <i class="bi bi-gear"></i>
-                        <span>Settings</span>
+                        <span>Settings Profile</span>
                     </a>
                 </li> --}}
                 <li>

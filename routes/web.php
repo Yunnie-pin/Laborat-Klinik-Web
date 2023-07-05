@@ -31,7 +31,11 @@ use App\Http\Livewire\DynamicRegistrasiPemeriksaan;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(!auth()->check()){
+        return redirect()->route('login');
+    }else{
+        return redirect()->route('dashboard');
+    }
 });
 
 Route::get('/login', [LoginController::class,'index'])->name('login')->middleware('guest');
@@ -39,72 +43,68 @@ Route::post('/login', [LoginController::class,'authenticate'])->name('login');
 
 Route::post('/logout', [LogoutController::class,'logout'])->name('logout');
 
-
 Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard')->middleware('auth');
 
-Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index'])->name('riwayat-pemeriksaan');
+Route::get('/riwayat-pemeriksaan', [RiwayatPemeriksaanController::class, 'index'])->name('riwayat-pemeriksaan')->middleware('auth');
+Route::get('/riwayat-pemeriksaan/{search}', [RiwayatPemeriksaanController::class, 'search'])->name('riwayat-pemeriksaan-search')->middleware('auth');
 
 //Super Admin
 Route::resource('/list-user', ListUserController::class)->names([
     'index' => 'list-user',
     'create' => 'create-user',
     'store' => 'store-user'
-]);;
+])->middleware('superadmin');;
 
 Route::resource('/list-bidang', ListBidangController::class)->names([
     'index' => 'list-bidang',
     'create' => 'create-bidang',
     'store' => 'store-bidang',
-]);
+])->middleware('superadmin');;
 
 Route::resource('/list-metode', ListMetodeController::class)->names([
     'index' => 'list-metode',
     'create' => 'create-metode',
     'store' => 'store-metode'
-]);
+])->middleware('superadmin');;
 
 Route::resource('/list-parameter', ListParameterController::class)->names([
     'index' => 'list-parameter',
     'create' => 'create-parameter',
-]);
+])->middleware('superadmin');
 
 
 //Administrasi
 Route::resource('/list-pasien', ListPasienController::class)->names([
     'index' => 'list-pasien',
     'create' => 'create-pasien',
-]);
+])->middleware('administrasi');
 
 Route::resource('/hasil-pemeriksaan', HasilPemeriksaanController::class)->names([
     'index' => 'hasil-pemeriksaan'
-]);
+])->middleware('administrasi');
 
-Route::get('/cetak-hasil/{id}', [CetakHasilController::class, 'show'])->name('cetak-hasil');
-Route::get('/cetak-nota/{id}', [CetakNotaPemeriksaan::class, 'show'])->name('cetak-nota');
+Route::get('/cetak-hasil/{id}', [CetakHasilController::class, 'show'])->name('cetak-hasil')->middleware('administrasi');
+Route::get('/cetak-nota/{id}', [CetakNotaPemeriksaan::class, 'show'])->name('cetak-nota')->middleware('administrasi');
 
 
 //Poli
 Route::resource('/registrasi-pemeriksaan', RegistrasiPemeriksaanController::class)->names([
     'index' => 'registrasi-pemeriksaan',
     'store' => 'store-pemeriksaan'
-]);
+])->middleware('poli');
 
 Route::resource('/review-pemeriksaan', ReviewPemeriksaanController::class)->names([
     'index' => 'review-pemeriksaan',
-]);
+])->middleware('poli');
 
-Route::get('/dynamic-registrasi-pemeriksaan', DynamicRegistrasiPemeriksaan::class)->name('dynamic-registrasi-pemeriksaan');
+Route::get('/dynamic-registrasi-pemeriksaan', DynamicRegistrasiPemeriksaan::class)->name('dynamic-registrasi-pemeriksaan')->middleware('poli');
 
 //Laborat
 Route::resource('/antrean-pemeriksaan', PemeriksaanController::class)->names([
     'index' => 'list-antrean-pemeriksaan',
     'show' => 'show-antrean-pemeriksaan',
-]);
+])->middleware('laborat');
 
-Route::get('/getDataPasien/{id}', [RegistrasiPemeriksaanController::class, 'getDataPasien']);
+Route::get('/getDataPasien/{id}', [RegistrasiPemeriksaanController::class, 'getDataPasien'])->middleware('laborat');
 
 
-
-// Route::get('/cekking', function () {
-//     return view('login');
-// });

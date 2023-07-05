@@ -19,13 +19,13 @@
             <div class="row">
                 <div class="card">
                     @if (session()->has('success'))
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success p-1" role="alert">
                         {{ session('success') }}
                     </div>
                     @endif
 
                     @if (session()->has('error'))
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-danger p-1" role="alert">
                         {{ session('error') }}
                     </div>
                     @endif
