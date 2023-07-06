@@ -18,14 +18,7 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-body p-3">
-                            <!-- card -->
-                            
-                            {{-- 'username' => 'admin',
-                            'email' => 'admin@mail.com',
-                            'password' => Hash::make('password'),
-                            'nama_lengkap' => 'Super Admin',
-                            'no_telp' => '08123xxxxxx',
-                            'roles_id' => 1, --}}
+
 
 
                             <form class="row g-3" method="post" action="{{ route('list-user.update', ['list_user' => $data->username]) }}">
@@ -39,9 +32,6 @@
                                             class="form-control"
                                             >
                                     </div>
-
-                                    {{-- end username --}}
-                                    {{-- email --}}
 
 
                                     <div class="py-2">

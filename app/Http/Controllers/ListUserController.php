@@ -94,6 +94,8 @@ class ListUserController extends Controller
             'roles_id' => 'required'
         ]);
 
+        
+
         User::where('username', $user )->update([
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -101,6 +103,7 @@ class ListUserController extends Controller
             'no_telp' => $request->no_telp,
             'roles_id' => $request->roles_id
         ]);
+
 
         return redirect('/list-user')->with('success','User telah berhasil diperbaharui');
 

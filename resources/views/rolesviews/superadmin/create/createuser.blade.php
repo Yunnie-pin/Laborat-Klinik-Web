@@ -87,7 +87,6 @@
                                         "
                                             id="nama_lengkap" name="nama_lengkap">
 
-
                                         @error('nama_lengkap')
                                             <label class="form-check-label invalid-feedback">
                                                 {{ $message }}
@@ -109,7 +108,6 @@
                                         @enderror
                                         "
                                             id="no_telp" name="no_telp">
-
 
                                         @error('no_telp')
                                             <label class="form-check-label invalid-feedback">
