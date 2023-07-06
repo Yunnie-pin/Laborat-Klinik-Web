@@ -37,6 +37,8 @@ class ListUserController extends Controller
     {
         //
         $request->validate([
+            'username' => 'required|max:30|unique:users',
+            'email' => 'required|unique:users',
             'password' => 'required|min:8|max:30',
             'nama_lengkap' => 'required',
             'no_telp' => 'required',
@@ -44,6 +46,8 @@ class ListUserController extends Controller
         ]);
 
         User::create([
+            'username' => $request->username,
+            'email' => $request->email,
             'password' => Hash::make($request->password),
             'nama_lengkap' => $request->nama_lengkap,
             'no_telp' => $request->no_telp,
@@ -90,6 +94,8 @@ class ListUserController extends Controller
             'roles_id' => 'required'
         ]);
 
+        
+
         User::where('username', $user )->update([
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -97,6 +103,7 @@ class ListUserController extends Controller
             'no_telp' => $request->no_telp,
             'roles_id' => $request->roles_id
         ]);
+
 
         return redirect('/list-user')->with('success','User telah berhasil diperbaharui');
 
