@@ -1,7 +1,5 @@
 
-# Nama Project
-
-"Web Klinik"
+# Laborat Web Klinik
 Project untuk memenuhi nilai tugas mata kuliah proyek pemrograman
 
 # Deskripsi Project
@@ -40,10 +38,8 @@ Install <>
 ```bash
   git clone https://github.com/Yunnie-pin/proyek_pemrograman_sem6
   cd proyek_pemrograman_sem6
+  php aritsan migrate:fresh --seed
   php artisan serve
-  
-  //Build Apk
-  php artisan build
 ```
     
 ## Tech
