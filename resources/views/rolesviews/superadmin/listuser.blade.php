@@ -25,11 +25,28 @@
                                 </div>
                             @endif
 
-                            <div class="py-3">
+                        <div class="row">
+                            <div class="col py-3">
                                 <a class="btn btn-success" href="{{ route('create-user') }}">
                                     <i class="bi bi-plus">Pendaftaran Petugas</i>
                                 </a>
                             </div>
+
+                            <div class="col">
+                                <form class="py-3 " action="{{ route('search-user') }}" method="GET">
+                                    <div class="row justify-content-end">
+                                        <div class="col-md-3">
+                                            <input type="text" name="search" class="form-control"  required/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button class="btn btn-primary" type="submit">Search</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                           
 
                             <!-- card -->
                             <div class="row p-3 border border-primary ">
@@ -95,6 +112,9 @@
                                     </tbody>
 
                                 </table>
+                                
+                                {!! $dataUser->render() !!}
+
                             </div>
 
                             <!-- end card -->

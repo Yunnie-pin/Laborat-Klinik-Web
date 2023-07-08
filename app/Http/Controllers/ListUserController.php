@@ -15,7 +15,7 @@ class ListUserController extends Controller
     public function index()
     {
         //
-        $dataUser = User::all();
+        $dataUser = User::latest()->simplePaginate(10);
 
         return view('rolesviews.superadmin.listuser', ['dataUser' => $dataUser]);
     }
@@ -119,4 +119,17 @@ class ListUserController extends Controller
         return redirect('/list-user')->with('success', 'User telah berhasil dihapus');
 
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $dataUser = User::where('email', 'LIKE', "%{$search}%")
+        ->orWhere('nama_lengkap', 'LIKE', "%{$search}%")
+        ->orWhere('username', 'LIKE', "%{$search}%")
+        ->orWhere('no_telp', 'LIKE', "%{$search}%")
+        ->simplePaginate(10);
+
+        return view('rolesviews.superadmin.listuser', ['dataUser' => $dataUser]);
+    }
+
 }

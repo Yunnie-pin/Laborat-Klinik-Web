@@ -19,8 +19,6 @@
                     <div class="card">
                         <div class="card-body p-3">
 
-
-
                             <form class="row g-3" method="post" action="{{ route('list-user.update', ['list_user' => $data->username]) }}">
                                 @csrf
                                  @method('put')
@@ -32,7 +30,6 @@
                                             class="form-control"
                                             >
                                     </div>
-
 
                                     <div class="py-2">
                                         <label for="email" class="form-label">Email</label>
