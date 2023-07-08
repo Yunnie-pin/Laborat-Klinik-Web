@@ -13,7 +13,7 @@ class ListPasienController extends Controller
     public function index()
     {
         //
-        $datapasien = Pasien::all();
+        $datapasien = Pasien::latest()->simplePaginate(10);
 
         return view('rolesviews.administrasi.listpasien', ['datapasien' => $datapasien]);
     }
@@ -107,5 +107,17 @@ class ListPasienController extends Controller
 
 
         return redirect('/list-pasien')->with('success', 'Pasien telah berhasil dihapus');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $datapasien = Pasien::where('nama', 'like', '%' . $search . '%')
+        ->orWhere('no_identitas', 'like', '%' . $search . '%')
+        ->orWhere('no_telp', 'like', '%' . $search . '%')
+        ->orWhere('bpjs', 'like', '%' . $search . '%')
+        ->orWhere('alamat', 'like', '%' . $search . '%')
+        ->paginate(5);
+        return view('rolesviews.administrasi.listpasien', ['datapasien' => $datapasien]);
     }
 }
