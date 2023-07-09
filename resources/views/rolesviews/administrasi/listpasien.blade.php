@@ -45,9 +45,7 @@
                                         </div>
                                     </form>
                             </div>
-
        
-
                             <!-- card -->
                             <div class="row p-3 border border-primary ">
                                 <table id="myTable" class="table table-striped border-primary table-hover table-bordered">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileUserController extends Controller
 {
@@ -13,54 +14,47 @@ class ProfileUserController extends Controller
     public function index()
     {
         //
+        return view('profile');
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+
+    public function update(Request $request)
     {
         //
+        $request->validate([
+            'nama_lengkap' => 'required',
+            'no_telp' => 'required',
+        ]);
+
+        if(!Hash::check($request->password, auth()->user()->password)){
+            return redirect('/dashboard')->with('error', 'Profile gagal diperbaharui, Password Salah');
+        }
+
+        User::where('id', auth()->user()->id)
+            ->update([
+                'nama_lengkap' => $request->nama_lengkap,
+                'no_telp' => $request->no_telp
+            ]);
+
+        return redirect('/dashboard')->with('success', 'Profile telah berhasil diubah');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function changePassword(){
+        return view('changepassword');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
-    {
-        //
-    }
+    public function updatePassword(Request $request){
+        $request->validate([
+            'password' => 'required|min:8|max:30',
+            'password_confirmation' => 'required|same:password'
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
-    {
-        //
-    }
+        User::where('id', auth()->user()->id)
+            ->update([
+                'password' => Hash::make($request->password)
+            ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
-    {
-        //
+        return redirect('/dashboard')->with('success', 'Password telah berhasil diubah');
     }
 }
