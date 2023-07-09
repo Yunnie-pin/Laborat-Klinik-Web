@@ -63,6 +63,9 @@ Route::resource('/profile', ProfileUserController::class)->names([
     'update' => 'update-profile'
 ])->except(['create', 'destroy', 'edit', 'store']) ->middleware('auth');
 
+Route::get('/change-password', [ProfileUserController::class, 'changePassword'])->name('change-password')->middleware('auth');
+Route::post('/change-password', [ProfileUserController::class, 'updatePassword'])->name('update-password')->middleware('auth');
+
 Route::resource('/list-bidang', ListBidangController::class)->names([
     'index' => 'list-bidang',
     'create' => 'create-bidang',

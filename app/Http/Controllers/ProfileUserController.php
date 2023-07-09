@@ -19,7 +19,7 @@ class ProfileUserController extends Controller
     }
 
 
-    public function update(Request $request, $user)
+    public function update(Request $request)
     {
         //
         $request->validate([
@@ -38,5 +38,23 @@ class ProfileUserController extends Controller
             ]);
 
         return redirect('/dashboard')->with('success', 'Profile telah berhasil diubah');
+    }
+
+    public function changePassword(){
+        return view('changepassword');
+    }
+
+    public function updatePassword(Request $request){
+        $request->validate([
+            'password' => 'required|min:8|max:30',
+            'password_confirmation' => 'required|same:password'
+        ]);
+
+        User::where('id', auth()->user()->id)
+            ->update([
+                'password' => Hash::make($request->password)
+            ]);
+
+        return redirect('/dashboard')->with('success', 'Password telah berhasil diubah');
     }
 }

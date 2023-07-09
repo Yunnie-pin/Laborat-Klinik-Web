@@ -34,6 +34,15 @@
                     <hr class="dropdown-divider">
                 </li>
                 <li>
+                    <a class="dropdown-item d-flex align-items-center" href="{{ route('change-password') }}">
+                        <i class="bi bi-gear"></i>
+                        <span>Ubah Password</span>
+                    </a>
+                </li>                
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button  class="dropdown-item d-flex align-items-center" type="submit">
