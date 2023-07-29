@@ -46,7 +46,7 @@
         @endif
         
 
-        @if(auth()->user()->roles->name == 'Admininstrasi' || auth()->user()->roles->name == 'Super Admin')
+        @if(auth()->user()->roles->name == 'Administrasi' || auth()->user()->roles->name == 'Super Admin')
         <li class="nav-heading">Administrasi Pages</li>
 
         <li class="nav-item">
