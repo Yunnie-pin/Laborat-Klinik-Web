@@ -30,6 +30,17 @@ class DynamicRegistrasiPemeriksaan extends Component
         $metode = json_decode($this->metodeId);
         $parameter = json_decode($this->parameterId);
 
+        if($bidang == null){
+            return redirect('/registrasi-pemeriksaan')->with('errorForm', 'Pemeriksaan gagal ditambahkan, silahkan tambahkan pilinh bidang pemeriksaaan');
+        }
+        if($metode == null){
+            return redirect('/registrasi-pemeriksaan')->with('errorForm', 'Pemeriksaan gagal ditambahkan, silahkan tambahkan pilinh metode pemeriksaaan');
+        }
+        if($parameter == null){
+            return redirect('/registrasi-pemeriksaan')->with('errorForm', 'Pemeriksaan gagal ditambahkan, silahkan tambahkan pilinh parameter pemeriksaaan');
+        }
+
+
         array_push($this->input, [
             'bidang' => $bidang->name,
             'metode' => $metode->name,

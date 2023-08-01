@@ -42,6 +42,12 @@
         </div>
     </div>
 
+    @if (session()->has('errorForm'))
+                        <div class="alert alert-danger p-2" role="alert">
+                            {{ session('errorForm') }}
+                        </div>
+    @endif
+
     <table id="myTable" class="table table-striped border-primary table-hover table-bordered">
         <thead>
             <tr>
@@ -63,6 +69,7 @@
                 <td>{{ $value['parameter'] }}</td>
                 <td>{{ $value['harga'] }}</td>
                 <td>
+
                     <button wire:click="remove({{ $key }})" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus pemeriksaan ini?')">
                         <i class="bi bi-trash3"></i>
                     </button>

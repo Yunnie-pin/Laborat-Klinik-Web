@@ -50,7 +50,7 @@ class RegistrasiPemeriksaanController extends Controller
         $validateData['status_id'] = 1;
         
         if($keterangan == null){
-            return redirect('/dashboard')->with('error', 'Pemeriksaan gagal ditambahkan, silahkan tambahkan keterangan');
+            return redirect('/registrasi-pemeriksaan')->with('error', 'Pemeriksaan gagal ditambahkan, silahkan tambahkan keterangan');
         }
 
         $result = Pemeriksaan::create($validateData);
@@ -67,7 +67,7 @@ class RegistrasiPemeriksaanController extends Controller
         $request->session()->forget('requestKeterangan');
         $request->session()->forget('keterangan');
         
-        return redirect('/dashboard')->with('success', 'Pemeriksaan telah berhasil ditambahkan');
+        return redirect('/registrasi-pemeriksaan')->with('success', 'Pemeriksaan telah berhasil ditambahkan');
     }
 
     public function getDataPasien($id){
