@@ -119,4 +119,3 @@ Route::resource('/antrean-pemeriksaan', PemeriksaanController::class)->names([
 
 Route::get('/getDataPasien/{id}', [RegistrasiPemeriksaanController::class, 'getDataPasien'])->middleware('laborat');
 
-
